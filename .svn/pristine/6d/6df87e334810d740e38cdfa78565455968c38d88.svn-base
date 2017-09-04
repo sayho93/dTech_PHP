@@ -1,0 +1,67 @@
+
+1. 서버
+
+  1.1 프로젝트 정보 및 개발 환경
+     - Spring 2.5
+     - mybaits 3.0
+     - quartz
+     - JDK 1.8
+     - tomcat 7.0
+
+  1.2 운영 서버 구성
+    총 3개의 서버로 구성 되어 있으며 각각 푸시/스케쥴 서버, API서버, 관리자(PHP) 서버라 명칭한다.
+
+    푸시/스케쥴 서버와 API서버의 소스는 동일해야한다.
+    푸시/스케쥴 서버에서는 예약된 푸시 및 동기화등을 진행하며 API는 사용하지 않는다.
+
+    API서버는 3개의 멀티 인스턴스로 구성되어 있으며 각각의 서비스에 대한 밸런싱은 아파치의 worker를 통하여 수행한다.
+
+    관리자 서버는 API서버에 관리자 관련 데이터를 요청하여 관리자 UI를 구성하고 서비스하는 서버이다.
+
+  1.3 Redis 캐시메모리
+    운영중인 API서버는 대량의 채팅 푸시를 전송하는 프로세스 처리를 위해 회원의 푸시 정보를 Redis 캐시메모리에 저장하여 DB의 쿼리수행을 최소화하고 있다.
+
+
+  1.4 설정 정보
+    1.4.1 Constants.java (LINE 16 ~ 46)
+     rs.pagoda.common.constants 패키지의 Constants 파일은 프로젝트의 공통적인 설정 정보 클래스이다.
+     기본적으로 변경 되어야하는 설정값은 아래와 같다.
+
+	REDIS_CACHE_USE				= true; // Redis서버 사용여부 - API서버:true , 푸시/스케쥴 서버 : false
+	IS_DEBUG				= true; // 디버그 모드 여부 - API서버:false , 푸시/스케쥴 서버 : false
+	IS_SERVER_REAL				= true; // 실서버 여부 - API서버:true , 푸시/스케쥴 서버 : true
+	PROJECT_PATH				= "/data/ssamtong"; // 홈디렉토리 경로 - API서버:/data/ssamtong , 푸시/스케쥴 서버 : /data/samtong
+	SERVER_OS				= "LINUX"; // 서버 OS - LINUX, WINDOW
+	DOMAIN					= "http://api.pagoda21.com"; // 접속 도메인 - API서버:http://api.pagoda21.com , 푸시/스케쥴 서버 : http://push.pagoda21.com
+
+     1.4.2 ChatConstants.java (LINE 7)
+     rs.pagoda.common.util.chat.contants 패키지의 ChatConstants 파일은 API서버와 채팅서버 간의 설정정보 클래스이다.
+     기본적으로 변경 되어야하는 설정값은 아래와 같다.
+	HOST_DOMAIN			= "http://gchat-pagoda.appg.co.kr:4080"; // 채팅서버 호스트 - 운영 : http://gchat-pagoda.appg.co.kr:4080
+
+
+     1.4.3 PushUtil.java (LINE 273 ~ 281)
+     rs.pagoda.common.util.push 패키지의 PushUtil 파일은 어플리케이션에서 푸시 전송 관련 프로세스를 담당하는 클래스이다.
+     기본적으로 변경 되어야하는 설정값은 아래와 같다.
+	테스트
+	private static final File KEYSTORE = new File(Constants.PROJECT_PATH + "/setting/ssamtong_dev.p12");
+	private static final String KEYSTORE_PASS = "pass";
+	private static final boolean isProduction = false;
+
+	운영
+	private static final File		KEYSTORE		= new File(Constants.PROJECT_PATH + "/setting/ssamtong_dist.p12");
+	private static final String		KEYSTORE_PASS	= "pass";
+	private static final boolean	isProduction	= true;
+
+     1.4.3 config.xml (LINE 49 ~ 54)
+     rs.pagoda.mybatis.config 패키지의 config.xml 파일은 데이터 연결 정보가 설정되어있다.
+	<!-- 운영서버 서버 / 디버그시 -->
+	<property name="driver" value="net.sf.log4jdbc.DriverSpy" />
+	<property name="url" value="jdbc:log4jdbc:oracle:thin:@211.233.4.122:1521:PAGODAAP" />
+
+	<!-- 운영서버 서버 / 실서버 적용시 -->
+	<!-- <property name="driver" value="oracle.jdbc.driver.OracleDriver" /> -->
+	<!-- <property name="url" value="jdbc:oracle:thin:@211.233.4.122:1521:PAGODAAP" /> -->
+
+   1.5 기타 사항
+     푸시/스케쥴 서버 재시작시에 반드시 http://211.253.9.241:8080/Api.do?cmd=test 해당 URL을 호출하여 서비스 확인을 해야한다.
