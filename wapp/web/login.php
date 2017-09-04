@@ -6,7 +6,9 @@
 
 ?>
 <script>
+//    swal({title:"",text:"아이디와 비밀번호가 일치하지 않습니다.", type:"warning"}, function(isConfirm){location.reload();});
     $(document).ready(function(){
+
         $(".jLogin").click(function(){
 
             $("#fm1").ajaxSubmit({
@@ -18,17 +20,24 @@
 
                 },
                 success : function(data){
-                    alert(data.returnMessage);
-                    if(data.returnCode == 1)
-                        location.href="/web/main.php";
-                    else{
-                        alert("아이디와 비밀번호가 일치하지 않습니다");
+                    if(data.returnCode == 1){
+                        swal({title:"", text:"로그인 되었습니다.", type:"success"}, function(){location.href="/web/main.php";});
+
                     }
+                    else if(data.returnCode == -2)
+                        swal({title:"",text:"올바른 값을 입력해 주세요", type:"warning"});
+                    else{
+                        swal({title:"",text:"아이디 혹은 비밀번호가 일치하지 않습니다.", type:"warning"});
+                    }
+                },
+                error : function(req, res, err){
+                    alert(req+res+err);
                 }
             });
         });
 
-
+        $("#userID").focus();
+        $("#userID, #userPwd").enterHandling($(".jLogin"));
     });
 
 </script>
@@ -39,8 +48,8 @@
         <h1>DURATECH</h1>
 
         <div class="login_input">
-            <input type="text" name="userID" placeholder="아이디" />
-            <input type="password" name="userPwd" placeholder="비밀번호" />
+            <input type="text" id="userID" name="userID" placeholder="아이디" />
+            <input type="password" id="userPwd" name="userPwd" placeholder="비밀번호" />
         </div>
 
         <input type="button" class="jLogin" name="" value="LOGIN" />

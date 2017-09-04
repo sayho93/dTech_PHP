@@ -13,7 +13,7 @@ if(! class_exists("WebUser") )	{
 			$actionUrl = "{$this->serverRoot}/user/read/".$userID;
 			$retVal = $this->getData($actionUrl, $request);
 
-			echo json_encode($retVal);
+//			echo json_encode($retVal);
 
 			if($retVal->returnCode == "!")
                 LoginUtil::doWebLogin();

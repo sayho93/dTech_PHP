@@ -18,6 +18,8 @@
 </head>
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/metaData.php" ?>
 
 	
