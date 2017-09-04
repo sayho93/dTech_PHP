@@ -22,7 +22,7 @@
                     if(data.returnCode == 1)
                         location.href="/web/main.php";
                     else{
-                        alert(아이디와 비밀번호가 일치하지 않습니다);
+                        alert("아이디와 비밀번호가 일치하지 않습니다");
                     }
                 }
             });

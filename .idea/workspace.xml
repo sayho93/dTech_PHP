@@ -25,8 +25,8 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wapp/web/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+            <state relative-caret-position="440">
+              <caret line="22" column="54" lean-forward="true" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -282,7 +282,7 @@
       <workItem from="1504492092276" duration="4383000" />
       <workItem from="1504498447061" duration="312000" />
       <workItem from="1504498767302" duration="29000" />
-      <workItem from="1504498821005" duration="3900000" />
+      <workItem from="1504498821005" duration="4064000" />
     </task>
     <task id="LOCAL-00001" summary="디렉터리 구조 변경">
       <created>1504492340121</created>
@@ -302,7 +302,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9942000" />
+    <option name="totallyTimeSpent" value="10106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -739,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wapp/web/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        <state relative-caret-position="440">
+          <caret line="22" column="54" lean-forward="true" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
           <folding />
         </state>
       </provider>
