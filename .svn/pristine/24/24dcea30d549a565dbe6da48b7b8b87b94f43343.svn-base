@@ -58,8 +58,8 @@
 
     <div class="pop_footer clearfix">
         <div class="f_r">
-            <input type="button" name="" value="<?=$locMap[buttons][cancel]?>" />
-            <input type="button" name="" value="<?=$locMap[buttons][confirm]?>" />
+            <input type="button" name="" value="취소" />
+            <input type="button" name="" value="확인" />
         </div>
     </div>
 </div>

@@ -11,10 +11,7 @@
     $obj = new WebUser($_REQUEST);
     $loc = $obj->webUser["loc"];
 ?>
-<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/comm/Locale.php"; ?>
-<?
-    $locMap = $MENU_CONSTS[$loc];
-?>
+
 <script>
     $(document).ready(function(){
         $(".jCancel").click2(function(){
@@ -80,8 +77,8 @@
 
     <div class="pop_footer clearfix">
         <div class="f_r">
-            <input type="button" class="jCancel" target="jLanguageSetting" value="<?=$locMap[buttons][cancel]?>" />
-            <input type="button" class="jSubmit" value="<?=$locMap[buttons][confirm]?>" />
+            <input type="button" class="jCancel" target="jLanguageSetting" value="취소" />
+            <input type="button" class="jSubmit" value="확인" />
         </div>
     </div>
 </div>

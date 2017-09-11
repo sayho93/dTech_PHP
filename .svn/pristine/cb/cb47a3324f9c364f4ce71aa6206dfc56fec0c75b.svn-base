@@ -1,4 +1,6 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/Web.php"; ?>
+
+
 <?
 	$headObj = new Web($_REQUEST);
 
@@ -10,14 +12,12 @@
         return;
     }
 ?>
-<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/comm/Locale.php"; ?>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="title" content="DURATECH">
-    <title><?=$locMap["web_title"]?></title>
+    <title>DURATECH</title>
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script src="js/html5shiv.min.js"></script>
 </head>
@@ -39,7 +39,7 @@
                     data: {
                     },
                     success: function (data) {
-                        alert("<?=$locMap[alerts][logout]?>");
+                        alert(data.returnMessage);
                         location.href = "/web";
                     }
                 });

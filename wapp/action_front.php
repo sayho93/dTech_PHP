@@ -5,6 +5,7 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminReference.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/AdminEtc.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ; ?>
+<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebMain.php" ; ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/php/AnyGo.php" ;?>
 <?
 	$cmd	= $_REQUEST[cmd] ; 
