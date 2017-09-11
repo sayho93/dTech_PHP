@@ -205,3 +205,17 @@ body{background:#121419; overflow-x:hidden;}
 .step2_view .view_title .date_select{height:3.88vh; position:absolute; top:50%; margin-top:-2.9vh; right:4.65vw;}
 .step2_view .view_title .date_select span{font-size:20px; color:#fff; vertical-align:middle; padding:0 0.4vw;}
 .step2_view .view_title .date_select input[type="button"]{width:8vw; font-size:20px; color:#222; height:3.88vh; background:#c7c8ca; border:none; padding-right:1.5vw; background-image:url('../image/ic_pop_date.png'); background-repeat:no-repeat; background-position:95% center;}
+
+/**/
+.popup_type03{width:27vw;}
+.popup_type03 .pop_title h3{line-height:5.55vh; padding-left:0.9vw;}
+.popup_type03 .pop_content{width:100%; background:#393939;}
+.popup_type03 .pop_content .chk_form{padding:2vh 0 1vh 0; text-align:center; margin:0 auto;}
+.popup_type03 .pop_content .chk_form li{margin-bottom:2vh;}
+.popup_type03 .pop_content .description{font-size:14px; color:#fff; text-align:center; padding-top:3vh;}
+/*.popup_type03 .pop_content ul{margin:0 auto; padding:3vh 0; display:inline-block; text-align:left;}*/
+.popup_type03 .pop_content li{height:4.44vh; margin-bottom:1.11vh;}
+.popup_type03 .pop_content li:last-child{margin-bottom:none;}
+.popup_type03 .pop_content li p{display:inline-block; width:5vw; text-align:right; font-size:18px; color:#fff; margin-right:30px; vertical-align:middle;}
+.popup_type03 .pop_content li select{width:4.5vw; margin-right:5px;}
+.popup_type03 .pop_content li select:last-child{margin-right:0;}

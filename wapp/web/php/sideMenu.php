@@ -19,9 +19,9 @@
     </ul>
 
     <div class="menu_lock">
-        <a href="#">
-            <img src="image/ic_side_lock.png" alt="사이드 메뉴 잠금" /><!-- 잠금 해제아이콘 > ic_side_lock_off.png -->
-            사이드 메뉴 잠금
+        <a>
+            <img src="image/ic_side_lock.png" alt="사이드 메뉴 잠금" flag="0"/><!-- 잠금 해제아이콘 > ic_side_lock_off.png -->
+            <dura>사이드 메뉴 잠금</dura>
         </a>
     </div>
 </div>
