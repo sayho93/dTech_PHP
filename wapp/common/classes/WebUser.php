@@ -6,7 +6,8 @@ if(! class_exists("WebUser") )	{
 		function __construct($req) {
 			parent::__construct($req);
 		}
-		
+
+		//web login
 		function userLogin() {
 		    $userID = $this->req["userID"];
 		    $request = $this->lnFn_Common_CrPost(array("password" => $this->req["userPwd"] ));
@@ -15,10 +16,31 @@ if(! class_exists("WebUser") )	{
 
             $userInfo = json_decode($retVal)->data;
 
-
             LoginUtil::doWebLogin($userInfo);
 			return $retVal;
 		}
+
+		//locale setting
+        function setLocale(){
+		    $userID = $this->webUser["userID"];
+		    $request = $this->lnFn_Common_CrPost(array("loc" => $this->req["locale"]));
+		    $actionUrl = "{$this->serverRoot}/user/locale/".$userID;
+		    $retVal = $this->getData($actionUrl, $request);
+
+		    return $retVal;
+        }
+
+        //refresh
+        function refreshUserInfo(){
+            $userID = $this->webUser["userID"];
+            $request = $this->lnFn_Common_CrPost(array("accessToken" => md5($userID)));
+            $actionUrl = "{$this->serverRoot}/user/read/".$userID;
+            $retVal = $this->getData($actionUrl, $request);
+            $userInfo = json_decode($retVal)->data;
+
+            LoginUtil::doWebLogin($userInfo);
+            return $retVal;
+        }
 		
 		function memberJoin(){
 			$actionUrl = "{$this->serverRoot}/MadCloud/ApiUser/saveUser";

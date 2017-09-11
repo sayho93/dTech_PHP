@@ -15,7 +15,7 @@
         <li><a><img src="image/ic_side_home.png" alt="메인" />메인</a></li>
         <li><a><img src="image/ic_side_add.png" alt="모터 추가" />모터 추가</a></li>
         <li class="jEmitPeriod"><a><img src="image/ic_side_timer.png" alt="점멸 주기 설정" />점멸 주기 설정</a></li>
-        <li><a><img src="image/ic_side_language.png" alt="언어 설정" />언어 설정</a></li>
+        <li class="jLangSetting"><a><img src="image/ic_side_language.png" alt="언어 설정" />언어 설정</a></li>
     </ul>
 
     <div class="menu_lock">

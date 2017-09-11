@@ -19,9 +19,33 @@ $webUser = $obj->webUser["userNo"];
 <script>
     $(document).ready(function () {
 
+        //메인 페이지
+        $(document).on("click", ".jMain", function(){
+            location.href = "/web/main.php";
+        });
+
+        //점멸주기설정
         $(document).on("click", ".jEmitPeriod", function(){
+            showPop("/web/popupCollection/emitPeriodPop.php");
+        });
+
+        //언어 설정
+        $(document).on("click", ".jLangSetting", function(){
+            showPop("/web/popupCollection/languageSettingPop.php");
+        });
+
+        $(document).on("click", ".JClose", function(){
+            var target = $(this).attr("target");
+            $("."+target).hide();
+        });
+
+        $(".jCancel").click(function(){
+            alert();
+        });
+
+        function showPop(url){
             $.ajax({
-                url: "/web/popupCollection/emitPeriodPop.php",
+                url: url,
                 async : false,
                 cache : false,
                 dataType : "html",
@@ -30,19 +54,10 @@ $webUser = $obj->webUser["userNo"];
                 },
                 success :function(data){
                     $(".jPopSection").html(data);
-                },
-                error : function(req, res, err){
-                    alert(req+res+err);
+                    $(".jPopSection").draggable();
                 }
             });
-        });
-
-        $(document).on("click", ".JClose", function(){
-            var target = $(this).attr("target");
-
-            $("."+target).hide();
-        });
-
+        }
     });
 </script>
 
@@ -60,7 +75,7 @@ $webUser = $obj->webUser["userNo"];
 </div>
 <!-- #####화면위치 END#####-->\
 
-<div class="jPopSection">
+<div class="jPopSection" style="position: relative">
 
 </div>
 

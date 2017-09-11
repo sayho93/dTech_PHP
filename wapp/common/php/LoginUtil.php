@@ -188,7 +188,8 @@ if (!class_exists("LoginUtil")) {
                     $row->auth . chr(30) .
                     $row->password . chr(30) .
                     $row->regDate . chr(30) .
-                    $row->uptDate . chr(30);
+                    $row->uptDate . chr(30) .
+                    $row->loc . chr(30);
 
                 $cookieStr = bin2hex($cookieStr); // 16진수로 암호화
                 setcookie("webUserMap", $cookieStr, -1, "/", "");
@@ -209,10 +210,10 @@ if (!class_exists("LoginUtil")) {
         static function getWebUser()
         {
             $cookieStr = $_COOKIE["webUserMap"];
-
             if (LoginUtil::isWebLogin() == false) {
                 $map['userNo'] = "-1";
-            } else {
+            }
+            else {
                 $cookieStr = pack("H*", $cookieStr);
 
                 $aUser = explode(chr(self::$spliter), $cookieStr);
@@ -223,6 +224,7 @@ if (!class_exists("LoginUtil")) {
                 $map['userPwd'] = $aUser[3];
                 $map['regDate'] = $aUser[4];
                 $map['uptDate'] = $aUser[5];
+                $map['loc'] = $aUser[6];
             }
             return $map;
         }

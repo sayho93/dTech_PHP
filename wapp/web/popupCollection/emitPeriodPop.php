@@ -8,7 +8,7 @@
 ?>
 
 <!-- #####팝업관리 POPUP START##### -->
-<div class="popup_type03 jEmitPeriodPop" style="margin-left: 35%; margin-top: 10%;">
+<div class="popup_type03 jEmitPeriodPop">
     <div class="pop_title">
         <h3>팝업 관리</h3>
         <a><img src="image/ic_pop_title_exit.png" class="JClose" alt="닫기" target="jEmitPeriodPop" /></a>
