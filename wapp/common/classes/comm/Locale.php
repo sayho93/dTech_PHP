@@ -16,6 +16,15 @@ $MENU_CONSTS = array(
         "buttons" => array(
             "confirm" => "확인",
             "cancel" => "취소"
+        ),
+        "statics" => array(
+            "motor" => "모터",
+            "group" => "그룹",
+            "plant" => "공장",
+            "company" => "회사",
+            "location" => "위치정보",
+            "logout" => "로그아웃",
+            "machineName" => "설비명"
         )
     ),
     "en" => array(
@@ -33,6 +42,15 @@ $MENU_CONSTS = array(
         "buttons" => array(
             "confirm" => "Confirm",
             "cancel" => "Cancel"
+        ),
+        "statics" => array(
+            "motor" => "Motor",
+            "group" => "Group",
+            "plant" => "Plant",
+            "company" => "Company",
+            "location" => "Location",
+            "logout" => "Logout",
+            "machineName" => "Machine Name"
         )
     )
 );

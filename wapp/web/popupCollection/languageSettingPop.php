@@ -17,12 +17,6 @@
 ?>
 <script>
     $(document).ready(function(){
-        $(".jCancel").click2(function(){
-            var target = $(this).attr("target");
-
-            $("."+target).hide();
-        });
-
         $(".jSubmit").click2(function(){
             var locale = $("[name=locRadio]:checked").val();
             $.ajax({
@@ -45,7 +39,8 @@
                         success : function(data){
                             if(data.returnCode == "1"){
                                 alert("저장되었습니다");
-                                $(".jCancel").trigger("click");
+//                                $(".jCancel").trigger("click");
+                                location.reload();
                             }
                         }
                     });
@@ -80,7 +75,7 @@
 
     <div class="pop_footer clearfix">
         <div class="f_r">
-            <input type="button" class="jCancel" target="jLanguageSetting" value="<?=$locMap[buttons][cancel]?>" />
+            <input type="button" class="JClose" target="jLanguageSetting" value="<?=$locMap[buttons][cancel]?>" />
             <input type="button" class="jSubmit" value="<?=$locMap[buttons][confirm]?>" />
         </div>
     </div>

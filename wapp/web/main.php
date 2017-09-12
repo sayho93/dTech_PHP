@@ -14,69 +14,54 @@ $obj = new WebUser($_REQUEST);
 
 $webUser = $obj->webUser["userNo"];
 ?>
-<style>
-    body {
-        color: #d3d3d3;
-        font: 12pt arial;
-        background-color: #222222;
-    }
-
-    #mynetwork {
-        width: 100%;
-        height: 100%;
-        border: 1px solid #444444;
-        background-color: #222222;
-    }
-</style>
 <script type="text/javascript" src="js/main.js"></script>
 <script src="js/html5shiv.min.js"></script>
 <script type="text/javascript" src="js/vis.js"></script>
+<script type="text/javascript" src="js/sehoMap.js"></script>
 <link href="css/vis.min.css" rel="stylesheet" type="text/css"/>
 <script>
-
-    var Map = function(){
-        this.map = new Object();
-    };
-
-    Map.prototype = {
-        put : function(key, value){
-            this.map[key] = value;
-        },
-        get : function(key){
-            return this.map[key];
-        },
-        containsKey : function(key){
-            return key in this.map;
-        }
-    };
+    //사이드메뉴 잠금 토글
+    $(function(){
+        $(".sideBar").find('.menu_lock').toggle(function(){
+            $('.menu_lock').find("img").attr("src", "image/ic_side_lock_off.png");
+            $('.menu_lock').find("img").attr("flag", "1");
+            $('.menu_lock').find("dura").html("<?=$locMap["side_lock_release"]?>");
+        }, function(){
+            $('.menu_lock').find("img").attr("src", "image/ic_side_lock.png");
+            $('.menu_lock').find("img").attr("flag", "0");
+            $('.menu_lock').find("dura").html("<?=$locMap["side_lock"]?>");
+        });
+    });
 
 
     $(document).ready(function () {
-
         //메인 페이지
         $(document).on("click", ".jMain", function(){
             location.href = "/web/main.php";
         });
 
-        //점멸주기설정
+        //모터 추가 팝업
+        $(document).on("click", ".jAddMotor", function(){
+            showPop("/web/popupCollection/addMotorPop.php");
+        });
+
+        //점멸주기설정 팝업
         $(document).on("click", ".jEmitPeriod", function(){
             showPop("/web/popupCollection/emitPeriodPop.php");
         });
 
-        //언어 설정
+        //언어 설정 팝업
         $(document).on("click", ".jLangSetting", function(){
             showPop("/web/popupCollection/languageSettingPop.php");
         });
 
+        //팝업 닫기 일괄 처리
         $(document).on("click", ".JClose", function(){
             var target = $(this).attr("target");
             $("."+target).hide();
         });
 
-        $(".jCancel").click(function(){
-            alert();
-        });
-
+        //common popup ajax loading
         function showPop(url){
             $.ajax({
                 url: url,
@@ -98,12 +83,8 @@ $webUser = $obj->webUser["userNo"];
 
         var locale = "<?=$obj->webUser[loc]?>";
 
-        var nodes = [
-
-        ];
-        var edges = [
-
-        ];
+        var nodes = [];
+        var edges = [];
 
         var container = document.getElementById('mynetwork');
 
@@ -194,12 +175,12 @@ $webUser = $obj->webUser["userNo"];
 
                 if(!gpMap.containsKey(getKey(pGroup, pPlant))){
                     edges.push({from : gMap.get(pGroup).id, to : pMap.get(pPlant).id})
-                    gpMap.put(getKey(pGroup, pPlant), "");
+                    gpMap.put(getKey(pGroup, pPlant), " ");
                 }
 
                 if(!pcMap.containsKey(getKey(pPlant, pCompany))){
                     edges.push({from : pMap.get(pPlant).id, to : cMap.get(pCompany).id})
-                    pcMap.put(getKey(pPlant, pCompany), "");
+                    pcMap.put(getKey(pPlant, pCompany), " ");
                 }
 
             }
@@ -211,7 +192,6 @@ $webUser = $obj->webUser["userNo"];
 
 </head>
 
-<!-- #####화면위치 START#####-->
 <div class="route">
     <p>
         회사명
@@ -221,30 +201,23 @@ $webUser = $obj->webUser["userNo"];
         그룹1
     </p>
 </div>
-<!-- #####화면위치 END#####-->
 
-<div class="jPopSection" style="position: relative">
+<div class="jPopSection" style="position: absolute; z-index:999">
 
 </div>
 
 
-<!-- #####마인드맵 START#####-->
 <div class="content_map">
 	<a href="#" class="prev"><img src="image/ic_main_prev.png" alt="prev" /></a>
 	<a href="#" class="next"><img src="image/ic_main_next.png" alt="next" /></a>
 	<div class="area" id="mynetwork">
 
     </div>
-
-
-
 </div>
-<!-- #####마인드맵 END#####-->
 
-<!-- #####화면정보 START#####-->
 <div class="view_info">
     <dl>
-        <dt>위치 정보</dt>
+        <dt><?=$locMap["statics"]["location"]?></dt>
         <dd>
             <p>
                 회사명
@@ -256,7 +229,7 @@ $webUser = $obj->webUser["userNo"];
                 그룹2
             </p>
         </dd>
-		<dt>설비 명</dt>
+		<dt><?=$locMap["statics"]["machineName"]?></dt>
 		<dd><p>47CH902-CM1M</p></dd>
 	</dl>
 
@@ -267,10 +240,11 @@ $webUser = $obj->webUser["userNo"];
 	</div>
 </div>
 
-<!-- #####화면정보 END#####-->
+<div id="addMotorModal">
+
+</div>
+
 
 </body>
-
-
 
 </html>

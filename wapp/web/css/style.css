@@ -219,3 +219,10 @@ body{background:#121419; overflow-x:hidden;}
 .popup_type03 .pop_content li p{display:inline-block; width:5vw; text-align:right; font-size:18px; color:#fff; margin-right:30px; vertical-align:middle;}
 .popup_type03 .pop_content li select{width:4.5vw; margin-right:5px;}
 .popup_type03 .pop_content li select:last-child{margin-right:0;}
+
+#mynetwork {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #444444;
+    background-color: #222222;
+}
