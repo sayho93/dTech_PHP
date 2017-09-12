@@ -69,8 +69,8 @@
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wapp/web/php/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="68" />
+            <state relative-caret-position="440">
+              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -86,23 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sideMenu.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wapp/web/php/sideMenu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="28" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wapp/web/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+            <state relative-caret-position="540">
+              <caret line="174" column="41" lean-forward="true" selection-start-line="174" selection-start-column="41" selection-end-line="174" selection-end-column="41" />
               <folding>
                 <element signature="e#3#86#0#PHP" expanded="true" />
               </folding>
@@ -110,11 +98,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="emitPeriodPop.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="apiTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wapp/common/classes/apiTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="226" column="16" lean-forward="false" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="emitPeriodPop.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/emitPeriodPop.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="723">
-              <caret line="78" column="25" lean-forward="false" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+            <state relative-caret-position="20">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
               </folding>
@@ -204,12 +202,12 @@
         <option value="$PROJECT_DIR$/wapp/web/php/sideMenu.php" />
         <option value="$PROJECT_DIR$/wapp/web/js/jquery-1.9.1.js" />
         <option value="$PROJECT_DIR$/wapp/web/php/metaData.php" />
-        <option value="$PROJECT_DIR$/wapp/web/php/header.php" />
         <option value="$PROJECT_DIR$/wapp/web/js/main.js" />
         <option value="$PROJECT_DIR$/wapp/web/popupCollection/languageSettingPop.php" />
-        <option value="$PROJECT_DIR$/wapp/web/main.php" />
         <option value="$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php" />
+        <option value="$PROJECT_DIR$/wapp/web/php/header.php" />
         <option value="$PROJECT_DIR$/wapp/web/popupCollection/emitPeriodPop.php" />
+        <option value="$PROJECT_DIR$/wapp/web/main.php" />
       </list>
     </option>
   </component>
@@ -230,9 +228,9 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="378" />
+    <option name="y" value="21" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
   </component>
@@ -358,7 +356,7 @@
       <workItem from="1504498767302" duration="29000" />
       <workItem from="1504498821005" duration="17210000" />
       <workItem from="1505089702468" duration="10375000" />
-      <workItem from="1505101750462" duration="35813000" />
+      <workItem from="1505101750462" duration="37465000" />
     </task>
     <task id="LOCAL-00001" summary="디렉터리 구조 변경">
       <created>1504492340121</created>
@@ -378,10 +376,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69440000" />
+    <option name="totallyTimeSpent" value="71092000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14791666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -422,14 +420,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wapp/common/classes/comm/Constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/common/classes/Web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -749,16 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/web/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
-          <folding>
-            <element signature="e#3#86#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/web/php/metaData.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -801,14 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/web/php/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/languageSettingPop.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -819,12 +791,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/web/php/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/emitPeriodPop.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="78" column="25" lean-forward="false" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+        <state relative-caret-position="20">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/common/classes/apiTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="226" column="16" lean-forward="false" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/web/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="174" column="41" lean-forward="true" selection-start-line="174" selection-start-column="41" selection-end-line="174" selection-end-column="41" />
+          <folding>
+            <element signature="e#3#86#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

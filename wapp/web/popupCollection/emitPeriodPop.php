@@ -84,7 +84,7 @@ $locMap = $MENU_CONSTS[$loc];
 
     <div class="pop_footer clearfix">
         <div class="f_r">
-            <input class="JClose" type="button" name="" value="<?=$locMap[buttons][cancel]?>" />
+            <input class="JClose" target="jEmitPeriodPop" type="button" name="" value="<?=$locMap[buttons][cancel]?>" />
             <input type="button" name="" value="<?=$locMap[buttons][confirm]?>" />
         </div>
     </div>

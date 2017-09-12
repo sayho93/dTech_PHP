@@ -149,26 +149,31 @@ $webUser = $obj->webUser["userNo"];
                 var pPlant = dataNodes[e].f_plant;
                 var pCompany = dataNodes[e].f_company;
 
+                var nMotor = dataNodes[e].UUID;
+                var nGroup = dataNodes[e].groupName;
+                var nPlant = dataNodes[e].plantName;
+                var nCompany = dataNodes[e].companyName;
+
                 if(!cMap.containsKey(pCompany)){ // 회사노드가 최초 출현인 경우
-                    var entry = {id: ++drawIndex, label: "회사", group: 0, cKey : pCompany};
+                    var entry = {id: ++drawIndex, label: nCompany, group: 0, cKey : pCompany};
                     nodes.push(entry);
                     cMap.put(pCompany, entry);
                 }
 
-                if(!pMap.containsKey(pPlant)){ // 회사노드가 최초 출현인 경우
-                    var entry = {id: ++drawIndex, label: "공장", group: 1, pKey : pPlant};
+                if(!pMap.containsKey(pPlant)){ // 공장노드가 최초 출현인 경우
+                    var entry = {id: ++drawIndex, label: nPlant, group: 1, pKey : pPlant};
                     nodes.push(entry);
                     pMap.put(pPlant, entry);
                 }
 
-                if(!gMap.containsKey(pGroup)){ // 회사노드가 최초 출현인 경우
-                    var entry = {id: ++drawIndex, label: "그룹", group: 2, gKey : pGroup};
+                if(!gMap.containsKey(pGroup)){ // 그룹노드가 최초 출현인 경우
+                    var entry = {id: ++drawIndex, label: nGroup, group: 2, gKey : pGroup};
                     nodes.push(entry);
                     gMap.put(pGroup, entry);
                 }
 
                 var cursor = ++drawIndex;
-                var entry = {id: cursor, label: "모터" + e, group: 3, mKey : pMotor};
+                var entry = {id: cursor, label: nMotor, group: 3, mKey : pMotor};
                 nodes.push(entry);
 
                 edges.push({from : cursor, to : gMap.get(pGroup).id})
