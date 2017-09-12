@@ -20,47 +20,7 @@ $webUser = $obj->webUser["userNo"];
 <script type="text/javascript" src="js/sehoMap.js"></script>
 <link href="css/vis.min.css" rel="stylesheet" type="text/css"/>
 <script>
-    //사이드메뉴 잠금 토글
-    $(function(){
-        $(".sideBar").find('.menu_lock').toggle(function(){
-            $('.menu_lock').find("img").attr("src", "image/ic_side_lock_off.png");
-            $('.menu_lock').find("img").attr("flag", "1");
-            $('.menu_lock').find("dura").html("<?=$locMap["side_lock_release"]?>");
-        }, function(){
-            $('.menu_lock').find("img").attr("src", "image/ic_side_lock.png");
-            $('.menu_lock').find("img").attr("flag", "0");
-            $('.menu_lock').find("dura").html("<?=$locMap["side_lock"]?>");
-        });
-    });
-
-
     $(document).ready(function () {
-        //메인 페이지
-        $(document).on("click", ".jMain", function(){
-            location.href = "/web/main.php";
-        });
-
-        //모터 추가 팝업
-        $(document).on("click", ".jAddMotor", function(){
-            showPop("/web/popupCollection/addMotorPop.php");
-        });
-
-        //점멸주기설정 팝업
-        $(document).on("click", ".jEmitPeriod", function(){
-            showPop("/web/popupCollection/emitPeriodPop.php");
-        });
-
-        //언어 설정 팝업
-        $(document).on("click", ".jLangSetting", function(){
-            showPop("/web/popupCollection/languageSettingPop.php");
-        });
-
-        //팝업 닫기 일괄 처리
-        $(document).on("click", ".JClose", function(){
-            var target = $(this).attr("target");
-            $("."+target).hide();
-        });
-
         //common popup ajax loading
         function showPop(url){
             $.ajax({
@@ -95,40 +55,45 @@ $webUser = $obj->webUser["userNo"];
 
         var options = {
             nodes: {
-                shape: 'dot',
-                size: 30,
+                shape: 'square',
+                size: 20,
                 font: {
-                    size: 32,
+                    size: 16,
                     color: '#ffffff'
                 },
-                borderWidth: 2
+                borderWidth: 1
             },
             edges: {
-                width: 2
-            }
+                width: 2,
+                smooth: {
+                    type : 'diagonalCross',
+                    roundness : 0
+                }
+            },
+            physics : false
         };
 
         $.ajax({
             url: "/action_front.php?cmd=WebMain.getMindMapData",
-            async : false,
+            async : true,
             cache : false,
             dataType : "json",
             data:{
                 level : 0
             },
+            beforeSend : function(){
+//                $(".jLoader").show();
+            },
             success : function(data){
                 var dataNodes = data.data.nodes;
                 drawMap(dataNodes);
-            },error : function(req, res, err){alert(req+res+err);}
+//                $(".jLoader").hide();
+            },
+            error : function(req, res, err){
+                alert(req+res+err);
+//                $(".jLoader").hide();
+            }
          });
-
-        network = new vis.Network(container, data, options);
-
-        network.on( 'click', function(properties) {
-            var ids = properties.nodes;
-            var clickedNodes = nodes[ids];
-            console.log('clicked nodes:', clickedNodes);
-        });
 
         function getKey(group, plant){
             return group + "-" + plant;
@@ -149,7 +114,7 @@ $webUser = $obj->webUser["userNo"];
                 var pPlant = dataNodes[e].f_plant;
                 var pCompany = dataNodes[e].f_company;
 
-                var nMotor = dataNodes[e].UUID;
+                var nMotor = dataNodes[e].motorName;
                 var nGroup = dataNodes[e].groupName;
                 var nPlant = dataNodes[e].plantName;
                 var nCompany = dataNodes[e].companyName;
@@ -190,6 +155,25 @@ $webUser = $obj->webUser["userNo"];
 
             }
 
+            network = new vis.Network(container, data, options);
+
+            network.on( 'click', function(properties) {
+                var ids = properties.nodes;
+                console.log("ids:::"+ids);
+                var clickedNodes = nodes[parseInt(ids)-1];
+
+                if(clickedNodes){
+                    console.log('clicked nodes:', clickedNodes);
+
+                    console.log("mKey:", clickedNodes.mKey);
+
+                    if(clickedNodes.mKey){
+                        console.log("motor clicked");
+                        location.href = "/web/step1.php?mKey="+clickedNodes.mKey;
+                    }
+                }
+
+            });
         }
 
     });
@@ -207,18 +191,22 @@ $webUser = $obj->webUser["userNo"];
     </p>
 </div>
 
-<div class="jPopSection" style="position: absolute; z-index:999">
-
-</div>
-
-
 <div class="content_map">
-	<a href="#" class="prev"><img src="image/ic_main_prev.png" alt="prev" /></a>
-	<a href="#" class="next"><img src="image/ic_main_next.png" alt="next" /></a>
-	<div class="area" id="mynetwork">
-
+    <a href="#" class="prev"><img src="image/ic_main_prev.png" alt="prev" /></a>
+    <a href="#" class="next"><img src="image/ic_main_next.png" alt="next" /></a>
+    <div class="area" id="mynetwork">
+<!--        <div class="jLoader" style="text-align:center;position: absolute;  display: inline-block;  width: 100%;  height: 100%;  padding: 1em;">-->
+<!--            <table width="100%" height="100%"><tr><td style="text-align:center;vertical-align: middle;"><img src="image/load.gif" width="150px" height="150px" /></td></tr></table>-->
+<!--        </div>-->
     </div>
 </div>
+
+<div class="jPopSection" style="position: absolute; z-index:999; top: 20vh; left:50vh">
+
+
+</div>
+
+
 
 <div class="view_info">
     <dl>
@@ -238,7 +226,7 @@ $webUser = $obj->webUser["userNo"];
 		<dd><p>47CH902-CM1M</p></dd>
 	</dl>
 
-	<div class="view_select">
+	<div class="view_select" style="margin-top:20px">
 		<select>
 			<option>그룹 1까지 보기</option>
 		</select>
