@@ -21,23 +21,26 @@
     <title><?=$locMap["web_title"]?></title>
     <script src="js/html5shiv.min.js"></script>
 
-    <!--css-->
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!---->
 
-    <!--alert js-->
-    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-    <script type="text/javascript" src="js/sweetalert.min.js"></script>
-    <!---->
 
-    <!--page loading animation-->
-    <link rel="stylesheet" type="text/css" href="/web/js/animsition-master/dist/css/animsition.min.css">
-    <script src="/web/js/animsition-master/dist/js/animsition.min.js" charset="utf-8"></script>
-    <!---->
 
-    <script type="text/javascript" src="js/main.js"></script>
 </head>
+
+<!--css-->
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!---->
+
+<!--alert js-->
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<!---->
+
+<!--page loading animation-->
+<link rel="stylesheet" type="text/css" href="/web/js/animsition-master/dist/css/animsition.min.css">
+<script src="/web/js/animsition-master/dist/js/animsition.min.js" charset="utf-8"></script>
+<!---->
+
 
 
 
@@ -151,7 +154,7 @@
 </script>
 
 <body>
-
+<script type="text/javascript" src="/web/js/main.js"></script>
 
 <?if(strpos($_SERVER['REQUEST_URI'], "/web/login.php") !== false){?>
 
