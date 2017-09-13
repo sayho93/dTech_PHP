@@ -46,6 +46,7 @@
 
 <script>
     $(document).ready(function(){
+        //page loading effect
         $('body').animsition({
             inClass: 'fade-in-up-sm',
             outClass: 'fade-out-up-sm',
@@ -68,7 +69,8 @@
             overlayParentElement : 'body',
             transition: function(url){ window.location.href = url; }
         });
-        
+
+        //header Menu handler ------------------------------------------------------------------------------------------
         //로그아웃 처리
         $("#jLoginCtrl").change(function(){
             if($("#jLoginCtrl").val() == "로그아웃" || $("#jLoginCtrl").val() == "Logout"){
@@ -87,13 +89,21 @@
             }
         });
 
+        //header popupManage Click handler
+        $(".jPopManage").click2(function(){
+            showPop("/web/popupCollection/popupManagePop.php");
+        });
+
         $(".jFullForce").click2(function(){
             var flag = $(this).attr("flag");
             toggleFullScreen();
             $(".jFullForce").attr("flag", (flag=="0"?"1":"0"));
             $(".jFullForce").find("img").attr("src", (flag=="0"?"image/ic_title_small.png":"image/ic_title_full.png"));
         });
+        //--------------------------------------------------------------------------------------------------------------
 
+
+        //side Menu handler---------------------------------------------------------------------------------------------
         //메인 페이지
         $(document).on("click", ".jMain", function(){
             location.href = "/web/main.php";
@@ -132,6 +142,7 @@
                 $('.menu_lock').find("dura").html("<?=$locMap["side_lock"]?>");
             });
         });
+        //--------------------------------------------------------------------------------------------------------------
 
         //팝업 영역 설정 공통
         function showPop(url){
@@ -140,15 +151,14 @@
                 async : false,
                 cache : false,
                 dataType : "html",
-                data:{
-
-                },
+                data:{},
                 success :function(data){
                     $(".jPopSection").html(data);
                     $(".jPopSection").draggable();
                 }
             });
         }
+
 
     });
 </script>
@@ -166,7 +176,7 @@
             <li><img src="image/ic_title_refresh.png" alt="refresh" /></li>
             <?if(strpos($_SERVER['REQUEST_URI'], "/web/step1.php") !== false){?>
                 <li><img src="image/ic_title_add.png" alt="add" /></li>
-                <li><img src="image/ic_title_pop.png" alt="pop" /></li>
+                <li class="jPopManage"><img src="image/ic_title_pop.png" alt="pop" /></li>
                 <li><img src="image/ic_title_lock.png" alt="lock" /></li><!-- 잠금해제 상태 이미지 ic_title_lock_open.png -->
             <?}?>
         </ul>

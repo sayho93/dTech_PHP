@@ -29,3 +29,17 @@ function toggleFullScreen() {
         cancelFullScreen.call(doc);
     }
 }
+
+function showPop(url){
+    $.ajax({
+        url: url,
+        async : false,
+        cache : false,
+        dataType : "html",
+        data:{},
+        success :function(data){
+            $(".jPopSection").html(data);
+            $(".jPopSection").draggable();
+        }
+    });
+}
