@@ -7,20 +7,21 @@
  */
 ?>
 
-<div class="sideBar">
-    <h2>DURATECH</h2>
+<div class="side_bg sideBar"></div>
+<div class="side_menu">
+    <h3>슈퍼 관리자<span>님</span></h3>
 
-    <ul class="menu_list">
-        <li class="jMain animsition-link"><a><img src="image/ic_side_home.png" alt="메인" /><?=$locMap["menu_main"]?></a></li>
-        <li class="jAddMotor"><a><img src="image/ic_side_add.png" alt="모터 추가" /><?=$locMap["menu_motor"]?></a></li>
-        <li class="jEmitPeriod"><a><img src="image/ic_side_timer.png" alt="점멸 주기 설정" /><?=$locMap["menu_emit"]?></a></li>
-        <li class="jLangSetting"><a><img src="image/ic_side_language.png" alt="언어 설정" /><?=$locMap["menu_locale"]?></a></li>
+    <ul>
+        <li><a href="#"><img src="image/ic_side_home.png" alt="메인" />메인</a></li>
+        <li><a href="#"><img src="image/ic_side_add.png" alt="모터 추가" />모터 추가</a></li>
     </ul>
 
-    <div class="menu_lock">
-        <a>
-            <img src="image/ic_side_lock.png" alt="사이드 메뉴 잠금" flag="0"/>
-            <dura><?=$locMap["side_lock"]?></dura>
+    <div class="logout">
+        <a href="#">
+            <img src="image/ic_side_logout.png" alt="로그아웃" />
+            로그아웃
         </a>
     </div>
+
+    <a href="#" class="side_exit"><img src="image/ic_side_exit.png" alt="닫기" /></a>
 </div>

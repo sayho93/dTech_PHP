@@ -540,27 +540,21 @@ if (! class_exists("Common"))
 
         function lnFn_Common_CrPost($a,$b='',$c=0) {
             if( !is_array( $a ) ) return false ;
-
             foreach ((array)$a as $k=>$v) {
                 if( $c ) {
                     if( is_numeric( $k ) ) $k=$b ;
                     else $k=$b ;
-
                 } else {
                     if ( is_int( $k ) ) $k=$b.$k ;
 
                 }
-
                 if( is_array( $v ) || is_object( $v ) ) {
                     $r[] = $this->lnFn_Common_CrPost( $v, $k, 1 ) ;
                     continue;
                 }
                 $r[] = urlencode( $k ) . "=" . urlencode( $v ) ;
-
             }
-
             return implode( "&", $r );
-
         }
 	}
 }

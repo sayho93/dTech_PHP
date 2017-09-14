@@ -6,7 +6,7 @@
 
     if($loginInfo[userNo] == -1)
     {
-        echo "<script>alert('로그인 후 이용가능합니다.'); location.href = '/web'; </script>";
+        echo "<script>alert('로그인 후 이용가능합니다.'); location.href = '/mobile'; </script>";
         return;
     }
 ?>
@@ -15,8 +15,8 @@
 <!DOCTYPE html>
 <html lang="utf-8">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="title" content="DURATECH">
     <title><?=$locMap["web_title"]?></title>
     <script src="js/html5shiv.min.js"></script>
@@ -31,10 +31,6 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <!---->
 
-<!--alert js-->
-<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-<script type="text/javascript" src="js/sweetalert.min.js"></script>
-<!---->
 
 <!--page loading animation-->
 <link rel="stylesheet" type="text/css" href="/web/js/animsition-master/dist/css/animsition.min.css">
@@ -55,17 +51,14 @@
             inDuration: 1500,
             outDuration: 800,
             linkElement: '.animsition-link',
-            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
             loading: true,
             loadingParentElement: 'body', //animsition wrapper element
             loadingClass: 'animsition-loading',
-            loadingInner: '', // e.g '<img src="loading.svg" />'
+            loadingInner: '',
             timeout: false,
             timeoutCountdown: 5000,
             onLoadEvent: true,
             browser: [ 'animation-duration', '-webkit-animation-duration'],
-            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
             overlay : false,
             overlayClass : 'animsition-overlay-slide',
             overlayParentElement : 'body',
@@ -166,39 +159,16 @@
 </script>
 
 <body>
-<script type="text/javascript" src="/web/js/main.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/sehoMap.js"></script>
 <script src="js/html5shiv.min.js"></script>
 
-<?if(strpos($_SERVER['REQUEST_URI'], "/web/login.php") !== false){?>
+<div class="header">
+    <h2>DURATECH</h2>
 
-<?}else{?>
-<!--    로그인 페이지 아닐 시-->
-    <div class="header clearfix">
-        <ul class="left_icon f_l">
-            <li class="menu"><img src="image/ic_title_menu.png" alt="menu" /></li>
-            <li><img src="image/ic_title_refresh.png" alt="refresh" /></li>
-            <?if(strpos($_SERVER['REQUEST_URI'], "/web/step1.php") !== false){?>
-                <li><img src="image/ic_title_add.png" alt="add" /></li>
-                <li class="jPopManage"><img src="image/ic_title_pop.png" alt="pop" /></li>
-                <li><img src="image/ic_title_lock.png" alt="lock" /></li><!-- 잠금해제 상태 이미지 ic_title_lock_open.png -->
-            <?}?>
-        </ul>
-
-        <div class="user_info">
-            <select id="jLoginCtrl" style="line-height: 3.5">
-                <option><?=$loginInfo["userID"]?></option>
-                <option class="jLogout"><?=$locMap["statics"]["logout"]?></option>
-            </select>
-        </div>
-
-        <ul class="right_icon f_r">
-            <!-- <li><img src="image/ic_title_data.png" alt="data" /></li> -->
-            <!-- <li><img src="image/ic_title_setting.png" alt="setting" /></li> -->
-            <li class="jFullForce" flag="0"><img src="image/ic_title_full.png" alt="full" /></li><!-- 전체화면 해제 이미지 ic_title_small.png -->
-        </ul>
-    </div>
-<?}?>
+    <a href="#" class="title_btn back" style="display:none;"><img src="image/btn_title_back.png" alt="뒤로가기" /></a>
+    <a href="#" class="title_btn menu"><img src="image/btn_title_menu.png" alt="메뉴" /></a>
+</div>
 
 
 	

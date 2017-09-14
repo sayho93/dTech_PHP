@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>DURATECH</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body class="tab_bg">
+
+<!-- #####HEADER START##### -->
+<div class="header">
+	<h2 class="normal_title">모터명</h2>
+
+	<a href="#" class="title_btn back"><img src="image/btn_title_back.png" alt="뒤로가기" /></a>
+	<a href="#" class="title_btn menu"><img src="image/btn_title_menu.png" alt="메뉴" /></a>
+</div>
+<!-- #####HEADER END##### -->
+
+
+<!-- #####SIDE MENU START##### -->
+<div class="side_bg"></div>
+<div class="side_menu">
+	<h3>슈퍼 관리자<span>님</span></h3>
+
+	<ul>
+		<li><a href="#"><img src="image/ic_side_home.png" alt="메인" />메인</a></li>
+		<li><a href="#"><img src="image/ic_side_add.png" alt="모터 추가" />모터 추가</a></li>
+	</ul>
+
+	<div class="logout">
+		<a href="#">
+			<img src="image/ic_side_logout.png" alt="로그아웃" />
+			로그아웃
+		</a>
+	</div>
+
+	<a href="#" class="side_exit"><img src="image/ic_side_exit.png" alt="닫기" /></a>
+</div>
+<!-- #####SIDE MENU END##### -->
+
+
+<!-- #####TAB MENU START##### -->
+<div class="tab_menu">
+	<ul class="clearfix">
+		<li class="tab on"><p>모터 상태</p></li><!-- 선택 된 탭에 addClass('on') -->
+		<li class="tab"><p>기계 상태</p></li>
+		<li class="tab"><p>에너지 효율</p></li>
+		<li class="tab"><p>모터 정보</p></li>
+	</ul>
+</div>
+<!-- #####TAB MENU END##### -->
+
+
+<!-- #####TAB CONTENT START##### -->
+<div class="tab_content">
+	<ul class="status_list">
+		<li>
+			<p>모터 고정자 결함</p>
+			<span class="bgR">심각</span>
+			<!-- 각 상태별 span에 대한 클래스 설명 >>> 정상상태 : bgG / 관심상태 : bgY / 주의상태 : bgO / 심각상태 : bgR -->
+		</li>
+		<li>
+			<p>모터 정적 편심</p>
+			<span class="bgG">정상</span>
+		</li>
+		<li>
+			<p>모터 동적 편심</p>
+			<span class="bgG">정상</span>
+		</li>
+		<li>
+			<p>모터 회전자</p>
+			<span class="bgO">주의</span>
+		</li>
+		<li>
+			<p>모터 부하측 베어링</p>
+			<span class="bgY">관심</span>
+		</li>
+		<li>
+			<p>모터 반부하측 베어링</p>
+			<span class="bgG">정상</span>
+		</li>
+	</ul>
+</div>
+<!-- #####TAB CONTENT END##### -->
+
+
+<!-- #####BOTTOM BTN START##### -->
+<div class="bottom_btn">
+	<input type="button" name="" value="Trend View" />
+	<input type="button" name="" value="Spectrum View" />
+</div>
+<!-- #####BOTTOM BTN END##### -->
+
+</body>
+</html>

@@ -44,18 +44,24 @@ if(! class_exists("WebMain") )	{
         }
 
         function getSpectrumDataWithParam($motorNo, $startDate, $endDate, $interval = 5, $limit = 100){
-
             if($motorNo == ""){
                 throw new Exception();
             }
 
             $paramsArray = array("startDate"=>$startDate, "endDate"=>$endDate, "interval"=>$interval, "limit"=>$limit);
-
-//            echo json_encode($paramsArray);
-
             $request = $this->lnFn_Common_CrPost($paramsArray);
             $actionUrl = "{$this->serverRoot}/data/spectrum/".$motorNo;
+            $retVal = $this->getData($actionUrl, $request);
 
+            return $retVal;
+        }
+
+        //App factory List Api
+        function getFactoryList(){
+            $companyNo = $this->webUser[companyNo];
+
+            $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
+            $actionUrl = "{$this->serverRoot}/data/plant/".$companyNo;
             $retVal = $this->getData($actionUrl, $request);
 
             return $retVal;

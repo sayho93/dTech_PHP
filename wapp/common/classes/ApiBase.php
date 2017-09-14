@@ -8,6 +8,7 @@ if(! class_exists("ApiBase") )	{
 		// xml 키가 들어 왔을경우 
 		function __construct($req) 
 		{
+            $this->serverRoot = "http://192.168.0.38:8550";
 			parent::__construct($req);
 		}
 
@@ -102,90 +103,7 @@ if(! class_exists("ApiBase") )	{
 			return json_encode($resultJson);
 		}
 
-		
-		/***************************************************************************
-		*	제  목 : 이용약관/개인정보 취급방침
-		*	함수명 : getInfoOfProvision
-		*	작성일 : 2013-08-19
-		*	작성자 : dev.Na
-		*	설  명 : 
-		*	수  정 :
-		'***************************************************************************/
-		function getInfoOfProvision()
-		{
-			$agreeTypeID = $this->req["agreeTypeID"];
-			$agreeTypeID = 2;
-			
-			$agree = "";
 
-			if($agreeTypeID == "1")
-			{
-				$filePath = $this->agreeInfoPath;
-			}
-			else
-			{
-				$filePath = $this->privacyInfoPath;
-			}
-
-			$files = fopen($filePath, "r");
-			
-			while($ss = fgets($files, 1024))	
-			{
-				$agree .= $ss;
-			}
-			
-			fclose($files);
-
-			$resultJson = array(
-				"returnCode"	=> "1" ,
-				"returnMessage" => "" ,
-				"entity"		=> $agree
-			) ;
-
-			return json_encode($resultJson) ;
-		}
-		
-		function getPrivacyInfo(){
-			$filePath = $this->privacyInfoPath;
-			$files = fopen($filePath, "r");
-				
-			while($ss = fgets($files, 1024))
-			{
-				$agree .= $ss;
-			}
-				
-			fclose($files);
-			
-			$resultJson = array(
-					"returnCode"	=> "1" ,
-					"returnMessage" => "" ,
-					"entity"		=> $agree
-			) ;
-			
-			return json_encode($resultJson) ;
-		}
-		
-		function getAgreeInfo(){
-			$filePath = $this->agreeInfoPath;
-			$files = fopen($filePath, "r");
-				
-			while($ss = fgets($files, 1024))
-			{
-				$agree .= $ss;
-			}
-				
-			fclose($files);
-			
-			$resultJson = array(
-					"returnCode"	=> "1" ,
-					"returnMessage" => "" ,
-					"entity"		=> $agree
-			) ;
-			
-			return json_encode($resultJson) ;
-		}
-		
-		
 		/***************************************************************************
 		 *	제  목 : 팝업 정보 조회
 		 *	함수명 : inFn_ApiBase_popupInfo
