@@ -20,7 +20,7 @@
             $(this).addClass("on");
             $(".tabContent").hide()
             var activeTab = $(this).attr("rel");
-            $("#" + activeTab).fadeIn()
+            $("#" + activeTab).fadeIn();
         });
     });
 </script>
