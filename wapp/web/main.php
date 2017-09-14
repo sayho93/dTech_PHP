@@ -15,10 +15,6 @@ $obj = new WebUser($_REQUEST);
 $webUser = $obj->webUser["userNo"];
 ?>
 
-<script src="js/html5shiv.min.js"></script>
-<script type="text/javascript" src="js/vis.js"></script>
-<script type="text/javascript" src="js/sehoMap.js"></script>
-<link href="css/vis.min.css" rel="stylesheet" type="text/css"/>
 <script>
     $(document).ready(function () {
         //common popup ajax loading

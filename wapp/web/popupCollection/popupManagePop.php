@@ -6,30 +6,35 @@
  * Time: 오전 9:39
  */
 ?>
+
 <script>
     $(document).ready(function(){
         var popMap = new Map();
 
         $(".jSubmit").click2(function(){
-
-
+            if(popMap.containsKey("/web/popupCollection/spectrumViewPop.php")){
+                //main.js의 showPop 호출
+                showPop("/web/popupCollection/spectrumViewPop.php");
+            }
 
         });
 
+        //select check/uncheck Map handler
         $(".jPopSelect").click2(function(){
             var flag = $(this).prop("checked");
-
             var target = $(this).attr("target");
-
+            console.log("flag : " + flag + ", target : "+ target)
             if(flag == true){
+                console.log("true");
                 popMap.put(target, "");
-
             }
-            else{
-
+            else if(flag == false){
+                console.log("falase");
+                popMap.remove(target);
             }
-
+            console.log(popMap);
         });
+
     });
 </script>
 
@@ -43,27 +48,27 @@
     <div class="pop_content">
         <ul class="chk_form clearfix">
             <li>
-                <input class="jPopSelect" type="checkbox" name="motorInfo" id="chk1" target="/web/poupCollection/motorInfoPop.php" />
+                <input class="jPopSelect" type="checkbox" name="motorInfo" id="chk1" target="/web/popupCollection/motorInfoPop.php" />
                 <label for="chk1"><span>모터 정보</span></label>
             </li>
             <li>
-                <input class="jPopSelect" type="checkbox" name="energyEfficiency" id="chk2" target="/web/poupCollection/energyEfficiencyPop.php" />
+                <input class="jPopSelect" type="checkbox" name="energyEfficiency" id="chk2" target="/web/popupCollection/energyEfficiencyPop.php" />
                 <label for="chk2"><span>에너지 효율</span></label>
             </li>
             <li>
-                <input class="jPopSelect" type="checkbox" name="motorStat" id="chk3" target="/web/poupCollection/motorStatPop.php" />
+                <input class="jPopSelect" type="checkbox" name="motorStat" id="chk3" target="/web/popupCollection/motorStatPop.php" />
                 <label for="chk3"><span>모터 상태</span></label>
             </li>
             <li>
-                <input class="jPopSelect" type="checkbox" name="trendView" id="chk4" target="/web/poupCollection/trendViewPop.php" />
+                <input class="jPopSelect" type="checkbox" name="trendView" id="chk4" target="/web/popupCollection/trendViewPop.php" />
                 <label for="chk4"><span>Trend View</span></label>
             </li>
             <li>
-                <input class="jPopSelect" type="checkbox" name="machineStat" id="chk5" target="/web/poupCollection/machineStatPop.php"/>
+                <input class="jPopSelect" type="checkbox" name="machineStat" id="chk5" target="/web/popupCollection/machineStatPop.php"/>
                 <label for="chk5"><span>기계 상태</span></label>
             </li>
             <li>
-                <input class="jPopSelect" type="checkbox" name="spectrumView" id="chk6" target="/web/poupCollection/spectrumViewPop.php"/>
+                <input class="jPopSelect" type="checkbox" name="spectrumView" id="chk6" target="/web/popupCollection/spectrumViewPop.php"/>
                 <label for="chk6"><span>Spectrum View</span></label>
             </li>
         </ul>

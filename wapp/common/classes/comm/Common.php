@@ -58,7 +58,7 @@ if (! class_exists("Common"))
 				'BMP'
 			);
 			
-			if (in_array(strtoupper($this->getFileExtension($imgUrl)), $imgExtension))
+			if (in_array(strtoupper($this->inFn_Common_getFileExtension($imgUrl)), $imgExtension))
 			{
 				$sizeInfo = getimagesize($imgUrl);
 				$file_width = $sizeInfo[0];

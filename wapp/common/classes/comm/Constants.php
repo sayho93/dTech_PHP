@@ -5,15 +5,15 @@ if(! class_exists("Constants") )
 	{
 	
 		/* 개발서버 */
-		var $excelSavePath			= "D:/workspace_php/SNUH/upload_excel" ;
-		var $fileSavePath			= "C:/Users/p/workspace_php/SNUH/upload_img" ;
-		var $fileSavePath_720		= "C:/Users/p/workspace_php/SNUH/720" ;				
-		var $fileSavePath_640		= "C:/Users/p/workspace_php/SNUH/640" ;				
-		var $fileSavePath_480		= "C:/Users/p/workspace_php/SNUH/480" ;				
-		var $fileSavePath_320		= "C:/Users/p/workspace_php/SNUH/320" ;				
-		var $fileSavePath_100		= "C:/Users/p/workspace_php/SNUH/100" ;				
-		var $agreeInfoPath			= "C:/Users/p/workspace_php/SNUH/setting/agree.txt";	// 이용약관 파일 경로
-		var $privacyInfoPath		= "C:/Users/p/workspace_php/SNUH/setting/privacy.txt";	// 개인정보취급방침 파일 경로
+		var $excelSavePath			= "D:/workspace_php/duratech/upload_excel" ;
+		var $fileSavePath			= "C:/Users/p/workspace_php/duratech/wapp/upload_img" ;
+		var $fileSavePath_720		= "C:/Users/p/workspace_php/duratech/720" ;				
+		var $fileSavePath_640		= "C:/Users/p/workspace_php/duratech/640" ;				
+		var $fileSavePath_480		= "C:/Users/p/workspace_php/duratech/480" ;				
+		var $fileSavePath_320		= "C:/Users/p/workspace_php/duratech/320" ;				
+		var $fileSavePath_100		= "C:/Users/p/workspace_php/duratech/100" ;				
+		var $agreeInfoPath			= "C:/Users/p/workspace_php/duratech/setting/agree.txt";	// 이용약관 파일 경로
+		var $privacyInfoPath		= "C:/Users/p/workspace_php/duratech/setting/privacy.txt";	// 개인정보취급방침 파일 경로
 		
 
 // 		var $logPath				= "C:/Users/p/workspace_php/groupby/log" ;	// simple 로그기록

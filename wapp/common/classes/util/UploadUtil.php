@@ -29,7 +29,7 @@ class UploadUtil
 
 		if(!isset($Extension))
 		{
-			$Extension = array("php","cgi","php3","php","asp","html");
+			$Extension = array("xls", "xlsx", "jpg", "png");
 		}else
 		{
 			$this->Extension = $Extension;
@@ -166,7 +166,11 @@ class UploadUtil
 	function uploadOneFile($File, $BasePath, $SubPath, $makeDayFolderFlag = FALSE, $overlapFlag = FALSE, $MakeNewNameFlag = FALSE){
 
 		$newFileName = $File["name"];
-		$SavePath = $BasePath . "/" . $SubPath;
+
+		if($SubPath != "")
+		    $SavePath = $BasePath . "/" . $SubPath;
+		else
+		    $SavePath = $BasePath;
 
 		//새로운 파일 이름 생성
 		if($MakeNewNameFlag)

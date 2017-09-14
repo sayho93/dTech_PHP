@@ -6,11 +6,50 @@
  * Time: 오전 11:02
  */
 ?>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+<!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+<!--<script src="/inc/fileUpload/fileUploadJS.js"></script>-->
 
 <script>
+    function initFileUpload(index){
+        $("#btnFileUpload" + index).css("cursor", "pointer").click(function(){
+            $("#files" + index).trigger("click");
+        });
+
+        $("#files" + index).change(function(){
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    // previewFileBind(index, "object", e.target.result, "");
+                    $("#fileArea").ajaxSubmit({
+                        url: "/action_front.php?cmd=WebMain.uploadFile",
+                        async : true,
+                        cache : false,
+                        dataType : "json",
+                        data:{
+                            level : 0
+                        },
+                        beforeSend : function(){
+                        },
+                        success : function(data){
+                            var dataNodes = data.data.nodes;
+                            drawMap(dataNodes);
+                        },
+                        error : function(req, res, err){
+                            alert(req+res+err);
+                        }
+                    });
+                }
+
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    }
+
+    initFileUpload(100);
+
+    //tabView event
     $(function (){
         $(".tabContent").hide();
         $(".tabContent:first").show();
@@ -162,6 +201,7 @@
                         <col width="18.75%" />
                         <col width="18.75%" />
                         <col width="18.75%" />
+
                         <col width="18.75%" />
                     </colgroup>
 
@@ -365,7 +405,16 @@
         </div>
 
         <div class="pop_footer clearfix">
-            <input type="button" name="" value="파일 불러오기" />
+<!--            <input type="button" style="margin-top:15px;" name="" value="파일 불러오기" />-->
+            <form id="fileArea">
+                <?
+                    $fileIndex = "100";
+                    $fileName = "filePathMotorInfo";
+                    $filePath = ($info ["filePathMotorInfo"] == "" ? "" : $info ["filePathMotorInfo"]);
+                    include $_SERVER ["DOCUMENT_ROOT"] . "/inc/fileUpload/fileUpload.php";
+                ?>
+                <input type="hidden" name="filePathMotorInfo" value="<?=$info["filePathMotorInfo"]?>" />
+            </form>
 
             <div class="f_r">
                 <input type="button" class="JClose" target="jAddMotorPop" value="취소" />

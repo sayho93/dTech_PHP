@@ -1,0 +1,10 @@
+$(function(){
+	$('.header').find('.menu').click(function(){
+		$('.side_bg').show();
+		$('.side_menu').animate({right:'0px'},300);
+	});
+	$('.side_menu').find('.side_exit').click(function(){
+		$('.side_bg').hide();
+		$('.side_menu').animate({right:'-80.54vw'},300);
+	});
+});

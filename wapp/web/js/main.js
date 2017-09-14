@@ -39,6 +39,7 @@ function showPop(url){
         data:{},
         success :function(data){
             $(".jPopSection").html(data);
+            $(".jPopSection").fadeIn();
             $(".jPopSection").draggable();
         }
     });

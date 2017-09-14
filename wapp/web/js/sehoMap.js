@@ -11,5 +11,8 @@ Map.prototype = {
     },
     containsKey : function(key){
         return key in this.map;
+    },
+    remove : function(key){
+        delete this.map[key];
     }
 };

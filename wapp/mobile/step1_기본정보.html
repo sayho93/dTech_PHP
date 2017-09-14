@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>DURATECH</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body class="tab_bg">
+
+<!-- #####HEADER START##### -->
+<div class="header">
+	<h2 class="normal_title">모터명</h2>
+
+	<a href="#" class="title_btn back"><img src="image/btn_title_back.png" alt="뒤로가기" /></a>
+	<a href="#" class="title_btn menu"><img src="image/btn_title_menu.png" alt="메뉴" /></a>
+</div>
+<!-- #####HEADER END##### -->
+
+
+<!-- #####SIDE MENU START##### -->
+<div class="side_bg"></div>
+<div class="side_menu">
+	<h3>슈퍼 관리자<span>님</span></h3>
+
+	<ul>
+		<li><a href="#"><img src="image/ic_side_home.png" alt="메인" />메인</a></li>
+		<li><a href="#"><img src="image/ic_side_add.png" alt="모터 추가" />모터 추가</a></li>
+	</ul>
+
+	<div class="logout">
+		<a href="#">
+			<img src="image/ic_side_logout.png" alt="로그아웃" />
+			로그아웃
+		</a>
+	</div>
+
+	<a href="#" class="side_exit"><img src="image/ic_side_exit.png" alt="닫기" /></a>
+</div>
+<!-- #####SIDE MENU END##### -->
+
+
+<!-- #####TAB MENU START##### -->
+<div class="tab_menu">
+	<ul class="clearfix">
+		<li class="tab"><p>모터 상태</p></li>
+		<li class="tab"><p>기계 상태</p></li>
+		<li class="tab"><p>에너지 효율</p></li>
+		<li class="tab on"><p>모터 정보</p></li><!-- 선택 된 탭에 addClass('on') -->
+	</ul>
+</div>
+<!-- #####TAB MENU END##### -->
+
+
+<!-- #####SELECT BOX START##### -->
+<div class="select_area">
+	<select>
+		<option>기본 정보</option>
+		<option>명판 정보</option>
+		<option>베어링 정보</option>
+		<option>구동장치</option>
+		<option>기타</option>
+	</select>
+</div>
+<!-- #####SELECT BOX END##### -->
+
+
+<!-- #####TAB CONTENT START##### -->
+<div class="tab_content motor_info_content">
+	<table class="tbl table_common normal_info_tbl">
+		<colgroup>
+			<col width="35%" />
+			<col width="65%" />
+		</colgroup>
+
+		<tbody>
+			<tr>
+				<th scope="row">설비 명</th>
+				<td>47CH902-CM1M</td>
+			</tr>
+			<tr>
+				<th scope="row">설비 종류</th>
+				<td>유도기</td>
+			</tr>
+			<tr>
+				<th scope="row">상수</th>
+				<td>단상</td>
+			</tr>
+			<tr>
+				<th scope="row">측정 전압 상수</th>
+				<td>1</td>
+			</tr>
+			<tr>
+				<th scope="row">측정 전류 상수</th>
+				<td>2</td>
+			</tr>
+			<tr>
+				<th scope="row">전류 센서</th>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!-- #####TAB CONTENT END##### -->
+
+
+<!-- #####BOTTOM BTN START##### -->
+<div class="bottom_btn">
+	<input type="button" name="" value="Trend View" />
+	<input type="button" name="" value="Spectrum View" />
+</div>
+<!-- #####BOTTOM BTN END##### -->
+
+</body>
+</html>

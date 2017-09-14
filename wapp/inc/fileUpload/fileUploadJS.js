@@ -25,7 +25,8 @@ function initFileUpload(index)
 			var reader = new FileReader();
 
 			reader.onload = function (e) {
-				previewFileBind(index, "object", e.target.result, "");
+				// previewFileBind(index, "object", e.target.result, "");
+
 			}
 
 			reader.readAsDataURL(this.files[0]);
