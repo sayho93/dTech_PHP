@@ -26,7 +26,7 @@ body{background:#121419; overflow-x:hidden;}
 
 
 /*#####HEADER#####*/
-.header{z-index:9997;position:fixed; top:0px; width:100vw; height:7.8vh; background:url('../image/bg_title.png') repeat-x; background-size:contain; border-bottom:1px solid #444; text-align:center;}
+.header{position:relative; width:100vw; height:7.8vh; background:url('../image/bg_title.png') repeat-x; background-size:contain; border-bottom:1px solid #444; text-align:center;}
 .header h2{font-size:22px; color:#fff; line-height:7.8vh;}
 .header h2.normal_title{font-weight:normal;}
 .header .title_btn{position:absolute; top:50%; margin-top:-2.2vh;}
@@ -36,8 +36,8 @@ body{background:#121419; overflow-x:hidden;}
 
 
 /*#####SIDE MENU#####*/
-.side_bg{background:rgba(0, 0, 0, 0.6); position:fixed; top:0; left:0; z-index:998; width:100vw; height:100vh; display:none;}
-.side_menu{width:66.66vw; height:100vh; background:#393939; position:fixed; top:0; right:-80.54vw; z-index:999;}
+.side_bg{background:rgba(0, 0, 0, 0.6); position:absolute; top:0; left:0; z-index:998; width:100vw; height:100vh; display:none;}
+.side_menu{width:66.66vw; height:100vh; background:#393939; position:absolute; top:0; right:-80.54vw; z-index:999;}
 .side_menu h3{font-size:18px; color:#8acff8; line-height:12.5vh; text-align:center;}
 .side_menu h3 span{font-weight:normal;}
 .side_menu ul{width:100%;}
@@ -54,19 +54,17 @@ body{background:#121419; overflow-x:hidden;}
 
 /*#####TAB MENU#####*/
 .tab_bg{background:#393939;}
-.tab_menu{width:100vw; margin-top: 7.8vh;}
+.tab_menu{width:100vw;}
 .tab_menu ul{padding:0 3.6vw; padding-top:1.25vh; background:#27292c;} 
 .tab_menu .tab{float:left; width:25%; height:6.25vh; line-height:6.25vh; background:#27292c; font-size:14px; color:#aaa; text-align:center;}
 .tab_menu .tab.on{color:#fff; background:#393939;}
 
 
 /*#####BOTTOM BTN#####*/
-.bottom_btn{width:100vw; height:7.8vh;padding-top:1.35vh; background:#151515; position:fixed; bottom:0;}
+.bottom_btn{width:100vw; padding:2.35vh 0; background:#151515; position:absolute; bottom:0;}
 .bottom_btn input{width:49.5%; height:4.68vh; text-align:center; font-size:16px; color:#fff; background:none; border:none; border-right:1px solid #fff; box-sizing:border-box;}
 .bottom_btn input:last-child{border-right:none;}
 
-/*Swiper Margin*/
-.swiper-container {padding-bottom: 13.83vh;}
 
 /*#####화면경로#####*/
 .view_route{width:92.8vw; height:4.68vh; padding:0 3.6vw; line-height:4.68vh; background:#333;}
@@ -161,11 +159,11 @@ body{background:#121419; overflow-x:hidden;}
 .spectrum_view .form_select select{height:6vh; font-size:13px; border:1px solid #ccc; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; background:url('../image/ic_drop_down.png') no-repeat 95% 50%; background-size:1.71vw; background-color:#fff; padding:0 6vw 0 1.56vw; margin-right:2vw;}
 .spectrum_view .form_chk{padding-left:1.56vw; margin-bottom:2.77vh;}
 .spectrum_view .form_chk input[type="checkbox"]{display:none;}
-.spectrum_view .form_chk input[type="checkbox"] + label{font-size:13px; color:#fff; vertical-align:middle; display:inline-block;}/*height:100%;*/
+.spectrum_view .form_chk input[type="checkbox"] + label{font-size:13px; color:#fff; vertical-align:middle; height:100%; display:inline-block;}
 .spectrum_view .form_chk input[type="checkbox"] + label span{display:inline-block; background:url('../image/btn_chk_off.png') no-repeat center left; cursor:pointer; padding-left:3.2vw; line-height:20px; text-align:left; background-size:2.34vw; margin-right:2.5vw;}
 .spectrum_view .form_chk input[type="checkbox"]:checked + label span{background:url('../image/btn_chk_on.png') no-repeat center left; background-size:2.34vw;}
 .spectrum_view .graph_area{padding:0 1.56vw; height:58vh;}
-.spectrum_view .graph_area .graph{background:#27292c;}/*padding:1.94vh 1.56vw;*/
+.spectrum_view .graph_area .graph{background:#27292c; padding:1.94vh 1.56vw;}
 .spectrum_view .graph_area02{padding:0 1.56vw; height:66vh;}
 .spectrum_view .graph_area02 .graph{background:#27292c; padding:1.94vh 1.56vw;}
 .spectrum_view .date_select span{font-size:13px; color:#fff; vertical-align:middle; padding:0 0.5vw;}

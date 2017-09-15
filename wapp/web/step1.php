@@ -11,7 +11,7 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/sideMenu.php" ;?>
 
 
-<div class="jPopSection" style="position: absolute; z-index:999; top: 20vh; left:50vh">
+<div class="jPopSection" style="position: absolute; z-index:999; top: 12vh; left:10vh">
 
 </div>
 

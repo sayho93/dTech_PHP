@@ -36,19 +36,9 @@
                 $(".jToMotor").bind("click");
             }
         });
-
-        $(".jToStep1").click(function(){
-            var ID = $(this).attr("no");
-            var motorName = $(this).children().html();
-            location.href = "/mobile/Step1/motorInfo.php?no="+ID+"&motorName="+motorName;
-        });
-
-
     });
 </script>
 
-
-<div style="height:7.8vh; top:0; width: 100vh;"></div>
 <div class="view_route">
     <p>리치웨어시스템즈</p>
     <span>></span><!-- 경로(p태그)와 경로 사이에 좌측 span태그 추가 -->
@@ -56,7 +46,7 @@
 
 <!--motor list template-->
 <div id="motorEntity" class="clearfix" style="display:none">
-    <li class="list @@@ jToStep1 f_l" no="***" style="cursor: pointer;"><p class="motor_name">###</p></li>
+    <li class="list @@@ jToStep1 f_l" no="***"><p class="motor_name">###</p></li>
 </div>
 <!---->
 

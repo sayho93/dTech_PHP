@@ -190,7 +190,8 @@ if (!class_exists("LoginUtil")) {
                     $row->regDate . chr(30) .
                     $row->uptDate . chr(30) .
                     $row->loc . chr(30) .
-                    $row->f_company . chr(30);
+                    $row->f_company . chr(30) .
+                    $row->pushEnabled . chr(30);
 
                 $cookieStr = bin2hex($cookieStr); // 16진수로 암호화
                 setcookie("webUserMap", $cookieStr, -1, "/", "");
@@ -227,6 +228,7 @@ if (!class_exists("LoginUtil")) {
                 $map['uptDate'] = $aUser[5];
                 $map['loc'] = $aUser[6];
                 $map['companyNo'] = $aUser[7];
+                $map['pushEnabled'] = $aUser[8];
             }
             return $map;
         }

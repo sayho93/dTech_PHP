@@ -43,15 +43,14 @@
     });
 </script>
 
-<div style="height:7.8vh; top:0; width: 100vh;"></div>
 <div class="view_route">
     <p>리치웨어시스템즈</p>
     <span>></span><!-- 경로(p태그)와 경로 사이에 좌측 span태그 추가 -->
 </div>
 
 <!--group list template-->
-<div id="groupEntity" style="display:none;">
-    <li class="list jToMotor" no="***" style="cursor: pointer;"><p class="group_name">###</p></li>
+<div id="groupEntity" style="display:none">
+    <li class="list jToMotor" no="***"><p class="group_name">###</p></li>
 </div>
 <!---->
 
