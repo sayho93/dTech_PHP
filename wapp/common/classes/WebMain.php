@@ -67,6 +67,27 @@ if(! class_exists("WebMain") )	{
             return $retVal;
         }
 
+        //App group List Api
+        function getGroupList(){
+            $factoryNo = $this->req["factoryNo"];
+
+            $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
+            $actionUrl = "{$this->serverRoot}/data/group/".$factoryNo;
+            $retVal = $this->getData($actionUrl, $request);
+
+            return $retVal;
+        }
+
+        //App motor List Api
+        function getMotorList(){
+            $groupNo = $this->req["groupNo"];
+
+            $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
+            $actionUrl = "{$this->serverRoot}/data/motor/".$groupNo;
+            $retVal = $this->getData($actionUrl, $request);
+
+            return $retVal;
+        }
     }
 }
 ?>

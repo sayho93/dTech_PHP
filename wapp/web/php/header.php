@@ -49,7 +49,7 @@
 <script>
     $(document).ready(function(){
         //page loading effect
-        $('body').animsition({
+        $('div :not(.header)').animsition({
             inClass: 'fade-in-up-sm',
             outClass: 'fade-out-up-sm',
             inDuration: 1500,
@@ -106,6 +106,7 @@
 
 
         //side Menu handler---------------------------------------------------------------------------------------------
+
         //메인 페이지
         $(document).on("click", ".jMain", function(){
             location.href = "/web/main.php";

@@ -9,92 +9,93 @@
 ?>
 <?
     $object = new WebMain($_REQUEST);
-    $graphData = json_decode($object->getSpectrumDataWithParam(1, "", "", 5, 100))->data;
+    $graphData = json_decode($object->getSpectrumDataWithParam(1, "", "", 5, 700))->data;
 
-    for($i=0; $i < sizeof($graphData); $i++){
-
-    }
-
-
+    echo "<script>console.log('".json_encode($graphData)."');</script>";
 
 ?>
 
 <script type="text/javascript">
-    var ctLV = document.getElementById('graphLV');
-    var ctHV = document.getElementById('graphHV');
-    var ctLA = document.getElementById('graphLA');
-    var ctHA = document.getElementById('graphHA');
+    $(document).ready(function(e){
 
-    var itemsLV = [
-        <?
-        for($i=0; $i < sizeof($graphData); $i++){
+        <?if(sizeof($graphData) > 0){?>
+
+        var ctLV = document.getElementById('graphLV');
+        var ctHV = document.getElementById('graphHV');
+        var ctLA = document.getElementById('graphLA');
+        var ctHA = document.getElementById('graphHA');
+
+        var itemsLV = [
+            <?
+            for($i=0; $i < sizeof($graphData); $i++){
             ?>
-        {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vLV?>, group:0},
+            {x: <?=$graphData[$i]->regDate + 1?>, y: <?=$graphData[$i]->vLV?>},
+            <?}?>
+        ];
+
+        var itemsHV = [
+            <?
+            for($i=0; $i < sizeof($graphData); $i++){
+            ?>
+            {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vHV?>},
+            <?}?>
+        ];
+
+        var itemsLA = [
+            <?
+            for($i=0; $i < sizeof($graphData); $i++){
+            ?>
+            {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vLA?>},
+            <?}?>
+        ];
+
+        var itemsHA = [
+            <?
+            for($i=0; $i < sizeof($graphData); $i++){
+            ?>
+            {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vHA?>},
+            <?}?>
+        ];
+
+        var dataLV = new vis.DataSet(itemsLV);
+        var dataHV = new vis.DataSet(itemsHV);
+        var dataLA = new vis.DataSet(itemsLA);
+        var dataHA = new vis.DataSet(itemsHA);
+
+        var optionsLV = {
+            drawPoints : false,
+            width : '100%',
+            height : '100%'
+        };
+
+        var optionsHV = {
+            drawPoints : false,
+            width : '100%',
+            height : '100%'
+        };
+
+        var optionsLA = {
+
+            drawPoints : false,
+            width : '100%',
+            height : '100%'
+        };
+
+        var optionsHA = {
+
+            drawPoints : false,
+            width : '100%',
+            height : '100%'
+        };
+
+        var grLV = new vis.Graph2d(ctLV, dataLV, optionsLV);
+        var grHV = new vis.Graph2d(ctHV, dataHV, optionsHV);
+        var grLA = new vis.Graph2d(ctLA, dataLA, optionsLA);
+        var grHA = new vis.Graph2d(ctHA, dataHA, optionsHA);
+
         <?}?>
-    ];
+    });
 
-    var itemsHV = [
-        <?
-        for($i=0; $i < sizeof($graphData); $i++){
-        ?>
-        {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vHV?>, group:1},
-        <?}?>
-    ];
-
-    var itemsLA = [
-        <?
-        for($i=0; $i < sizeof($graphData); $i++){
-        ?>
-        {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vLA?>, group:2},
-        <?}?>
-    ];
-
-    var itemsHA = [
-        <?
-        for($i=0; $i < sizeof($graphData); $i++){
-        ?>
-        {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vHA?>, group:3},
-        <?}?>
-    ];
-
-    var dataLV = new vis.DataSet(itemsLV);
-    var dataHV = new vis.DataSet(itemsHV);
-    var dataLA = new vis.DataSet(itemsLA);
-    var dataHA = new vis.DataSet(itemsHA);
-
-    var optionsLV = {
-        start: <?=$graphData[0]->regDate?>,
-        end: new Date().getTime(),
-        width : '100%',
-        height : '100%'
-    };
-
-    var optionsHV = {
-        start: <?=$graphData[0]->regDate?>,
-        end: new Date().getTime(),
-        width : '100%',
-        height : '100%'
-    };
-
-    var optionsLA = {
-        start: <?=$graphData[0]->regDate?>,
-        end: new Date().getTime(),
-        width : '100%',
-        height : '100%'
-    };
-
-    var optionsHA = {
-        start: <?=$graphData[0]->regDate?>,
-        min: <?=$graphData[0]->regDate?>,
-        end: new Date().getTime(),
-        width : '100%',
-        height : '100%'
-    };
-
-    var grLV = new vis.Graph2d(ctLV, dataLV, optionsLV);
-    var grHV = new vis.Graph2d(ctHV, dataHV, optionsHV);
-    var grLA = new vis.Graph2d(ctLA, dataLA, optionsLA);
-    var grHA = new vis.Graph2d(ctHA, dataHA, optionsHA);
 </script>
 
 <div class="spectrum_pop jSpectrumPop">

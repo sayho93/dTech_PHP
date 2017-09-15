@@ -8,13 +8,7 @@
 ?>
 
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/header.php" ;?>
-<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/sideMenu.php" ;?>
-<?
-$obj = new WebUser($_REQUEST);
-
-$webUser = $obj->webUser["userNo"];
-?>
 
 <script>
     $(document).ready(function(){
@@ -34,10 +28,12 @@ $webUser = $obj->webUser["userNo"];
             }
         });
 
-        $(".jtoNext").click(function(){
+        $(document).on("click", ".jToGroup", function(){
             var ID = $(this).attr("no");
-            alert(ID);
+
+           location.href = "/mobile/groupList.php?no="+ID;
         });
+
     });
 </script>
 
@@ -48,7 +44,7 @@ $webUser = $obj->webUser["userNo"];
 
 <!--factory list template-->
 <div id="listEntity" style="display:none;">
-    <li class="list jtoNext" no="***">
+    <li class="list jToGroup" no="***">
         <p class="factory_name">###</p>
         <a class="next_page"><img src="image/btn_arrow_right.png" alt="다음 페이지" /></a>
     </li>
@@ -56,10 +52,11 @@ $webUser = $obj->webUser["userNo"];
 <!---->
 
 
-<div class="factory_list">
+<div class="factory_list" id="factoryList">
     <ul class="jFactoryList">
 
     </ul>
 </div>
+
 
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/footer.php" ;?>

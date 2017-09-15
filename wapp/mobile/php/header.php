@@ -45,9 +45,9 @@
 <script>
     $(document).ready(function(){
         //page loading effect
-        $('body').animsition({
-            inClass: 'fade-in-up-sm',
-            outClass: 'fade-out-up-sm',
+        $('div :not(.header)').animsition({
+            inClass: 'fade-in-right-sm',
+            outClass: 'fade-out-right-sm',
             inDuration: 1500,
             outDuration: 800,
             linkElement: '.animsition-link',
@@ -66,23 +66,7 @@
         });
 
         //header Menu handler ------------------------------------------------------------------------------------------
-        //로그아웃 처리
-        $("#jLoginCtrl").change(function(){
-            if($("#jLoginCtrl").val() == "로그아웃" || $("#jLoginCtrl").val() == "Logout"){
-                $.ajax({
-                    url: "/action_front.php?cmd=WebBase.doWebLogout",
-                    async: false,
-                    cache: false,
-                    dataType: 'json',
-                    data: {
-                    },
-                    success: function (data) {
-                        alert("<?=$locMap[alerts][logout]?>");
-                        location.href = "/web";
-                    }
-                });
-            }
-        });
+
 
         //header popupManage Click handler
         $(".jPopManage").click2(function(){
@@ -95,13 +79,33 @@
             $(".jFullForce").attr("flag", (flag=="0"?"1":"0"));
             $(".jFullForce").find("img").attr("src", (flag=="0"?"image/ic_title_small.png":"image/ic_title_full.png"));
         });
+
+        $(".jBack").click(function(){
+            history.go(-1);
+        });
         //--------------------------------------------------------------------------------------------------------------
 
 
         //side Menu handler---------------------------------------------------------------------------------------------
         //메인 페이지
         $(document).on("click", ".jMain", function(){
-            location.href = "/web/main.php";
+            location.href = "/mobile/main.php";
+        });
+
+        //로그아웃 처리
+        $(".jLogout").click(function(){
+            $.ajax({
+                url: "/action_front.php?cmd=WebBase.doWebLogout",
+                async: false,
+                cache: false,
+                dataType: 'json',
+                data: {
+                },
+                success: function (data) {
+                    alert("<?=$locMap[alerts][logout]?>");
+                    location.href = "/mobile";
+                }
+            });
         });
 
         //모터 추가 팝업
@@ -166,7 +170,7 @@
 <div class="header">
     <h2>DURATECH</h2>
 
-    <a href="#" class="title_btn back" style="display:none;"><img src="image/btn_title_back.png" alt="뒤로가기" /></a>
+    <a href="#" class="title_btn back jBack" style="display:none;"><img src="image/btn_title_back.png" alt="뒤로가기" /></a>
     <a href="#" class="title_btn menu"><img src="image/btn_title_menu.png" alt="메뉴" /></a>
 </div>
 
