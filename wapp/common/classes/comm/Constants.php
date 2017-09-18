@@ -23,7 +23,7 @@ if(! class_exists("Constants") )
 		var $con_domain				= "http://localhost:8600" ;	// 메일에서 사용되는 도메인
 
 
-        var $serverRoot				= "http://192.168.0.38:8550";
+        var $serverRoot				= "http://192.168.0.38:8551";
 				
 		var $fileSaveUrl			= "/upload_img/" ;
 		var $fileSaveUrl_480		= "/480/" ;

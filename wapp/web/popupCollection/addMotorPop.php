@@ -13,6 +13,8 @@
 
 <script>
     var json = null;
+    var totalRow = 0;
+    var processedRow = 0;
 
     function initFileUpload(index){
         $("#btnFileUpload" + index).css("cursor", "pointer").click(function(){
@@ -37,7 +39,12 @@
                         beforeSend : function(){
                         },
                         success : function(data){
-                            initData(data);
+                            totalRow = data.data.totalRow;
+                            processedRow = data.data.processedRow;
+
+                            swal("", processedRow + "개의 데이터를 성공적으로 로드했습니다.", "info");
+
+                            initData(data.data.list);
                         },
                         error : function(req, res, err){
                             alert(req+res+err);
@@ -48,14 +55,52 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
+
+        $(".jSave").click(function(){
+            saveData(0, wrapForm($("#form")));
+            console.log(json[0]);
+        });
     }
 
     initFileUpload(100);
 
+    function wrapForm(form){
+        var res = [];
+        $.each(form.serializeArray(), function() {
+            res[this.name] = this.value;
+        });
+
+        return res;
+    }
+
+    function saveData(index, row){
+        var keys = Object.keys(row);
+        var indexKeys = Object.keys(json[index]);
+        for(var e = 0; e < keys.length; e++){
+            var currentValue = row[keys[e]];
+            if(indexKeys.includes(keys[e])) json[index][keys[e]] = currentValue;
+        }
+    }
+
+    function initSelector(selector){
+        selector.fadeIn();
+        selector.html('');
+        for(var e = 0; e < json.length; e++){
+            selector.append("<option value='" + e + "'>" + (e + 1) + "</option>");
+        }
+
+        selector.change(function(){
+            bindData(json[selector.val()]);
+        });
+    }
+
     function initData(rawJson){
         json = rawJson;
         console.log(json);
-        if(json.data.list.length > 0) bindData(json.data.list[0]);
+
+        initSelector($("#motorIndex"));
+
+        if(json.length > 0) bindData(json[0]);
     }
 
     function bindData(row){
@@ -66,7 +111,14 @@
     function set(row, aliases){
         for(var e = 0; e < aliases.length; e++) {
             var alias = aliases[e];
-            $("[name=" + alias + "]").val(row[alias]);
+            //checkbox일 경우
+            if($("[name=" + alias + "]").attr("type") == "radio"){
+//                console.log(alias+"::"+row[alias]);
+                $("[name=" + alias + "][value=" + row[alias] + "]").prop("checked", true);
+            }
+            else {
+                $("[name=" + alias + "]").val(row[alias]);
+            }
         }
     }
 
@@ -85,12 +137,16 @@
 
     });
 </script>
-
+<form id="form">
 <div class="popup_area01 jAddMotorPop">
     <div class="motor_pop">
         <div class="pop_title">
-            <h3><img src="/web/image/ic_pop_title_add.png" alt="" />모터 추가</h3>
-
+            <h3>
+                <img src="/web/image/ic_pop_title_add.png" alt="" />모터 추가
+            <select id="motorIndex" style="display: none; width:2vw ;height:100%; box-sizing: border-box; border:1px solid #ccc; font-size:16px; background-image: url(../image/ic_pop_dropdown.png); background-position: 95% 50%;">
+                <option value="-1">-</option>
+            </select>
+            </h3>
             <a><img src="/web/image/ic_pop_title_exit.png" class="JClose" target="jAddMotorPop" alt="닫기" /></a>
         </div>
 
@@ -513,7 +569,7 @@
                 </table>
             </div>
         </div>
-
+</form>
         <div class="pop_footer clearfix">
             <form id="fileArea">
                 <?
@@ -528,7 +584,7 @@
             <div class="f_r">
                 <input type="button" class="JClose" target="jAddMotorPop" value="취소" />
                 <input type="button" name="" value="확인" />
-                <input type="button" name="" value="적용" />
+                <input type="button" class="jSave" name="" value="적용" />
             </div>
         </div>
     </div>

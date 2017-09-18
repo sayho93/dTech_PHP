@@ -6,7 +6,7 @@ if(! class_exists("WebBase") )	{
 		
 		function __construct($req) {
 			
-			$this->serverRoot = "http://192.168.0.38:8550";
+//			$this->serverRoot = "http://192.168.0.38:8551";
 			
 			parent::__construct($req);
 		}
