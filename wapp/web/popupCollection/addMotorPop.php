@@ -12,12 +12,16 @@
 <!--<script src="/inc/fileUpload/fileUploadJS.js"></script>-->
 
 <script>
+    var json = null;
+
     function initFileUpload(index){
         $("#btnFileUpload" + index).css("cursor", "pointer").click(function(){
             $("#files" + index).trigger("click");
         });
 
         $("#files" + index).change(function(){
+            var i=0;
+
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -33,8 +37,7 @@
                         beforeSend : function(){
                         },
                         success : function(data){
-                            var dataNodes = data.data.nodes;
-                            drawMap(dataNodes);
+                            initData(data);
                         },
                         error : function(req, res, err){
                             alert(req+res+err);
@@ -49,6 +52,24 @@
 
     initFileUpload(100);
 
+    function initData(rawJson){
+        json = rawJson;
+        console.log(json);
+        if(json.data.list.length > 0) bindData(json.data.list[0]);
+    }
+
+    function bindData(row){
+        console.log();
+        set(row, Object.keys(row));
+    }
+
+    function set(row, aliases){
+        for(var e = 0; e < aliases.length; e++) {
+            var alias = aliases[e];
+            $("[name=" + alias + "]").val(row[alias]);
+        }
+    }
+
     //tabView event
     $(function (){
         $(".tabContent").hide();
@@ -61,6 +82,7 @@
             var activeTab = $(this).attr("rel");
             $("#" + activeTab).fadeIn();
         });
+
     });
 </script>
 
@@ -102,40 +124,52 @@
                     </li>
                     <li>
                         <p>UUID</p>
-                        <input type="text" name="UUID" />
+                        <input type="text" name="uuid" />
                     </li>
                     <li>
                         <p>설비 종류</p>
                         <select name="deviceType">
-                            <option>선택</option>
+                            <option value="">선택</option>
+                            <option value="유도기">유도기</option>
+                            <option value="동기기">동기기</option>
+                            <option value="인버터">인버터</option>
                         </select>
                     </li>
                     <li>
                         <p>상수</p>
-                        <input type="radio" name="phaseType" id="ra1" />
+                        <input type="radio" name="phaseType" id="ra1" value="단상"/>
                         <label for="ra1"><span>단상</span></label>
-                        <input type="radio" name="phaseType" id="ra2" />
+                        <input type="radio" name="phaseType" id="ra2" value="3상"/>
                         <label for="ra2"><span>3상</span></label>
                     </li>
                     <li>
                         <p>측정 전압 상수</p>
                         <select name="voltagePhase">
                             <option>선택</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </li>
                     <li>
                         <p>측정 전류 상수</p>
-                        <input type="radio" name="currencyPhase" id="ra3" />
+                        <input type="radio" name="currencyPhase" id="ra3" value="1"/>
                         <label for="ra3"><span>1</span></label>
-                        <input type="radio" name="currencyPhase" id="ra4" />
+                        <input type="radio" name="currencyPhase" id="ra4" value="2"/>
                         <label for="ra4"><span>2</span></label>
-                        <input type="radio" name="currencyPhase" id="ra5" />
+                        <input type="radio" name="currencyPhase" id="ra5" value="3"/>
                         <label for="ra5"><span>3</span></label>
                     </li>
                     <li>
                         <p>전류 센서</p>
                         <select name="currencySensor">
                             <option>선택</option>
+                            <option vale="5A">5A</option>
+                            <option vale="10A">10A</option>
+                            <option vale="100A">100A</option>
+                            <option vale="200A">200A</option>
+                            <option vale="600A">600A</option>
+                            <option vale="1000A">1000A</option>
                         </select>
                     </li>
                 </ul>
@@ -210,10 +244,10 @@
                         <th>DE 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row"><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
+                        <td scope="row"><input name="NDEBearing1" /></td>
+                        <td><input name="NDEBearing2" /></td>
+                        <td><input name="DEBearing1" /></td>
+                        <td><input name="DEBearing2" /></td>
                     </tr>
 
                     <!--                    row2-->
@@ -225,10 +259,10 @@
                         <th>1 shaft Gear 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row"><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
+                        <td scope="row"><input name="shaft1PinionBearing1" /></td>
+                        <td><input name="shaft1PinionBearing2" /></td>
+                        <td><input name="shaft1GearBearing1" /></td>
+                        <td><input name="shaft1GearBearing2" /></td>
                     </tr>
 
                     <!--                    row3-->
@@ -240,10 +274,10 @@
                         <th>2 shaft Gear 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row"><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
+                        <td scope="row"><input name="shaft2PinionBearing1" /></td>
+                        <td><input name="shaft2PinionBearing2" /></td>
+                        <td><input name="shaft2GearBearing1" /></td>
+                        <td><input name="shaft2GearBearing2" /></td>
                     </tr>
 
                     <!--                    row4-->
@@ -255,10 +289,10 @@
                         <th>3 shaft Gear 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row"><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
+                        <td scope="row"><input name="shaft3PinionBearing1" /></td>
+                        <td><input name="shaft3PinionBearing2" /></td>
+                        <td><input name="shaft3GearBearing1" /></td>
+                        <td><input name="shaft3GearBearing2" /></td>
                     </tr>
 
                     <!--                    row5-->
@@ -270,10 +304,10 @@
                         <th>4 shaft Gear 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row"><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
+                        <td scope="row"><input name="shaft4PinionBearing1" /></td>
+                        <td><input name="shaft4PinionBearing2" /></td>
+                        <td><input name="shaft4GearBearing1" /></td>
+                        <td><input name="shaft4GearBearing2" /></td>
                     </tr>
 
                     <!--                    row6-->
@@ -285,10 +319,10 @@
                         <th>5 shaft Gear 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row"><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
-                        <td><input name="" /></td>
+                        <td scope="row"><input name="shaft5PinionBearing1" /></td>
+                        <td><input name="shaft5PinionBearing2" /></td>
+                        <td><input name="shaft5GearBearing1" /></td>
+                        <td><input name="shaft5GearBearing2" /></td>
                     </tr>
                 </table>
                 <div class="tab03_btn">
@@ -363,14 +397,23 @@
             <ul class="tab05 tabContent" id="tabs-5">
                 <li>
                     <p>데이터 수집 시간</p>
-                    <select>
-                        <option>00 시간</option>
+                    <select name="dataCollectPeriodHour">
+                        <option>선택</option>
+                        <?for($i=0; $i<24; $i++){?>
+                            <option value="<?=$i?>"><?=$i?> 시간</option>
+                        <?}?>
                     </select>
-                    <select>
-                        <option>00 분</option>
+                    <select name="dataCollectMinute">
+                        <option>선택</option>
+                        <?for($i=0; $i<60; $i++){?>
+                            <option value="<?=$i?>"><?=$i?> 분</option>
+                        <?}?>
                     </select>
-                    <select>
-                        <option>00 초</option>
+                    <select name="dataCollectSecond">
+                        <option>선택</option>
+                        <?for($i=0; $i<60; $i++){?>
+                            <option value="<?=$i?>"><?=$i?> 초</option>
+                        <?}?>
                     </select>
                 </li>
                 <li class="description">
@@ -397,61 +440,81 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td scope="row">모터 고정자 결합</td>
-                        <td class="color_y">20</td>
-                        <td class="color_o">10</td>
-                        <td class="color_r">6</td>
+                        <td scope="row">모터 회전자 결함</td>
+                        <td class="color_y"><input name="rotorDefectCaution" /></td>
+                        <td class="color_o"><input name="rotorDefectWarn" /></td>
+                        <td class="color_r"><input name="rotorDefectCritical" /></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">모터 고정자 결함</td>
+                        <td class="color_y"><input name="statorDefectCaution" /></td>
+                        <td class="color_o"><input name="statorDefectWarn" /></td>
+                        <td class="color_r"><input name="statorDefectCritical" /></td>
                     </tr>
                     <tr>
                         <td scope="row">모터 정적 편심</td>
-                        <td class="color_y">20</td>
-                        <td class="color_o">10</td>
-                        <td class="color_r">6</td>
+                        <td class="color_y"><input name="staticPartialDefectCaution" /></td>
+                        <td class="color_o"><input name="staticPartialDefectWarn" /></td>
+                        <td class="color_r"><input name="staticPartialDefectCritical" /></td>
                     </tr>
                     <tr>
                         <td scope="row">모터 동적 편심</td>
-                        <td class="color_y">20</td>
-                        <td class="color_o">10</td>
-                        <td class="color_r">6</td>
+                        <td class="color_y"><input name="dynamicParialDefectCaution" /></td>
+                        <td class="color_o"><input name="dynamicParialDefectWarn" /></td>
+                        <td class="color_r"><input name="dynamicParialDefectCritical" /></td>
                     </tr>
                     <tr>
-                        <td scope="row">모터 회전자</td>
-                        <td class="color_y">20</td>
-                        <td class="color_o">10</td>
-                        <td class="color_r">6</td>
+                        <td scope="row">축정렬 상태</td>
+                        <td><input name="axialMisalignmentDefectCaution" /></td>
+                        <td><input name="axialMisalignmentDefectWarn" /></td>
+                        <td><input name="axialMisalignmentDefectCritical" /></td>
                     </tr>
                     <tr>
-                        <td scope="row">모터 부하측 베어링</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td scope="row">소프트풋 상태</td>
+                        <td><input name="softFootDefectCaution" /></td>
+                        <td><input name="softFootDefectWarn" /></td>
+                        <td><input name="softFootDefectCritical" /></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">기계적 불균형</td>
+                        <td><input name="mechanicDisorderCaution" /></td>
+                        <td><input name="mechanicDisorderWarn" /></td>
+                        <td><input name="mechanicDisorderCritical" /></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">부하 설비(1, 2)</td>
+                        <td><input name="loadFacilityDefectCaution" /></td>
+                        <td><input name="loadFacilityDefectWarn" /></td>
+                        <td><input name="loadFacilityDefectCritical" /></td>
                     </tr>
                     <tr>
                         <td scope="row">모터 반부하측 베어링</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><input name="halfLoadMotorBearingCaution" /></td>
+                        <td><input name="halfLoadMotorBearingWarn" /></td>
+                        <td><input name="halfLoadMotorBearingCritical" /></td>
                     </tr>
                     <tr>
-                        <td scope="row">축정렬</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td scope="row">모터 부하측 베어링</td>
+                        <td><input name="fullLoadMotorBearingCaution" /></td>
+                        <td><input name="fullLoadMotorBearingWarn" /></td>
+                        <td><input name="fullLoadMotorBearingCritical" /></td>
                     </tr>
                     <tr>
-                        <td scope="row">소트프풋</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td scope="row">부하 설비 베어링</td>
+                        <td><input name="loadFacilityBearingCaution" /></td>
+                        <td><input name="loadFacilityBearingWarn" /></td>
+                        <td><input name="loadFacilityBearingCritical" /></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">베어링 레벨</td>
+                        <td colspan="3"><input name="bearingLevel" style="width:94%"/></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <!-- TAB알람 기준값 END -->
         </div>
 
         <div class="pop_footer clearfix">
-<!--            <input type="button" style="margin-top:15px;" name="" value="파일 불러오기" />-->
             <form id="fileArea">
                 <?
                     $fileIndex = "100";
