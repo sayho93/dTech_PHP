@@ -85,54 +85,56 @@
             <div class="tabContent" id="tabs-1">
                 <ul>
                     <li>
+                        <p>공장 선택</p>
+                        <select name="f_plant">
+                            <option>선택</option>
+                        </select>
+                    </li>
+                    <li>
                         <p>그룹 선택</p>
-                        <select>
+                        <select name="f_group">
                             <option>선택</option>
                         </select>
                     </li>
                     <li>
                         <p>설비명</p>
-                        <input type="text" name="" />
+                        <input type="text" name="deviceName" />
                     </li>
                     <li>
-                        <p>설치장소</p>
-                        <input type="text" name="" />
-                    </li>
-                    <li>
-                        <p>전기실명</p>
-                        <input type="text" name="" />
+                        <p>UUID</p>
+                        <input type="text" name="UUID" />
                     </li>
                     <li>
                         <p>설비 종류</p>
-                        <select>
+                        <select name="deviceType">
                             <option>선택</option>
                         </select>
                     </li>
                     <li>
                         <p>상수</p>
-                        <input type="radio" name="radio" id="ra1" />
+                        <input type="radio" name="phaseType" id="ra1" />
                         <label for="ra1"><span>단상</span></label>
-                        <input type="radio" name="radio" id="ra2" />
+                        <input type="radio" name="phaseType" id="ra2" />
                         <label for="ra2"><span>3상</span></label>
                     </li>
                     <li>
                         <p>측정 전압 상수</p>
-                        <select>
+                        <select name="voltagePhase">
                             <option>선택</option>
                         </select>
                     </li>
                     <li>
-                        <p>상수</p>
-                        <input type="radio" name="radio" id="ra3" />
+                        <p>측정 전류 상수</p>
+                        <input type="radio" name="currencyPhase" id="ra3" />
                         <label for="ra3"><span>1</span></label>
-                        <input type="radio" name="radio" id="ra4" />
+                        <input type="radio" name="currencyPhase" id="ra4" />
                         <label for="ra4"><span>2</span></label>
-                        <input type="radio" name="radio" id="ra5" />
+                        <input type="radio" name="currencyPhase" id="ra5" />
                         <label for="ra5"><span>3</span></label>
                     </li>
                     <li>
                         <p>전류 센서</p>
-                        <select>
+                        <select name="currencySensor">
                             <option>선택</option>
                         </select>
                     </li>
@@ -142,108 +144,152 @@
             <div class="tab02 clearfix tabContent" id="tabs-2">
                 <ul class="left_area f_l">
                     <li>
-                        <p>전기실명</p>
-                        <input type="text" name="" />
+                        <p>정격출력(KW)</p>
+                        <input type="text" name="ratedOutput" />
                     </li>
                     <li>
-                        <p>정격속도</p>
-                        <input type="text" name="" />
+                        <p>정격속도(RPM)</p>
+                        <input type="text" name="ratedSpeed" />
                     </li>
                     <li>
-                        <p>전압</p>
-                        <input type="text" name="" />
+                        <p>전압(V)</p>
+                        <input type="text" name="voatageValue" />
                     </li>
                     <li>
-                        <p>정격전류</p>
-                        <input type="text" name="" />
+                        <p>전류(A)</p>
+                        <input type="text" name="currencyValue" />
                     </li>
                     <li>
-                        <p>토오크</p>
-                        <input type="text" name="" />
+                        <p>극수</p>
+                        <input type="text" name="noOfPole" />
                     </li>
                     <li>
                         <p>회전자 봉</p>
-                        <input type="text" name="" />
+                        <input type="text" name="rotorBar" />
                     </li>
                 </ul>
                 <ul class="right_area f_l">
                     <li>
                         <p>고정자 슬롯</p>
-                        <input type="text" name="" />
-                    </li>
-                    <li>
-                        <p>극수</p>
-                        <input type="text" name="" />
-                    </li>
-                    <li>
-                        <p>변류비</p>
-                        <input type="text" name="" />
-                    </li>
-                    <li>
-                        <p>변암비</p>
-                        <input type="text" name="" />
-                    </li>
-                    <li>
-                        <p>효율</p>
-                        <input type="text" name="" />
+                        <input type="text" name="statorSlot" />
                     </li>
                     <li>
                         <p>역률</p>
-                        <input type="text" name="" />
+                        <input type="text" name="powerFactor" />
+                    </li>
+                    <li>
+                        <p>효율</p>
+                        <input type="text" name="efficiency" />
+                    </li>
+                    <li>
+                        <p>변압비</p>
+                        <input type="text" name="tranformationRatio" />
+                    </li>
+                    <li>
+                        <p>변류비</p>
+                        <input type="text" name="currentTransformerRatio" />
                     </li>
                 </ul>
             </div>
 
             <div class="tab03 tabContent" id="tabs-3">
-                <table class="tbl">
+                <table class="tbl" style="text-align: center">
                     <colgroup>
                         <col width="25%" />
                         <col width="18.75%" />
                         <col width="18.75%" />
                         <col width="18.75%" />
-
                         <col width="18.75%" />
                     </colgroup>
+                    <!--                    row1-->
+                    <tr>
+                        <td rowspan="2">모터 베어링</td>
+                        <th scope="row">N_DE 베어링1</th>
+                        <th>N_DE 베어링2</th>
+                        <th>DE 베어링1</th>
+                        <th>DE 베어링2</th>
+                    </tr>
+                    <tr>
+                        <td scope="row"><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                    </tr>
 
-                    <thead>
+                    <!--                    row2-->
                     <tr>
-                        <th scope="col">위치</th>
-                        <th scope="col">베어링</th>
-                        <th scope="col">내륜</th>
-                        <th scope="col">외륜</th>
-                        <th scope="col">BS</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td scope="row">A</td>
-                        <td>1111</td>
-                        <td>1.1</td>
-                        <td>1.2</td>
-                        <td>1.3</td>
+                        <td rowspan="2">1 shaft</td>
+                        <th scope="row">1 shaft Pinion 베어링1</th>
+                        <th>1 shaft Pinion 베어링2</th>
+                        <th>1 shaft Gear 베어링1</th>
+                        <th>1 shaft Gear 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row">B</td>
-                        <td>1111</td>
-                        <td>1.1</td>
-                        <td>1.2</td>
-                        <td>1.3</td>
+                        <td scope="row"><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                    </tr>
+
+                    <!--                    row3-->
+                    <tr>
+                        <td rowspan="2">2 shaft</td>
+                        <th scope="row">2 shaft Pinion 베어링1</th>
+                        <th>2 shaft Pinion 베어링2</th>
+                        <th>2 shaft Gear 베어링1</th>
+                        <th>2 shaft Gear 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row">C</td>
-                        <td>1111</td>
-                        <td>1.1</td>
-                        <td>1.2</td>
-                        <td>1.3</td>
+                        <td scope="row"><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                    </tr>
+
+                    <!--                    row4-->
+                    <tr>
+                        <td rowspan="2">3 shaft</td>
+                        <th scope="row">3 shaft Pinion 베어링1</th>
+                        <th>3 shaft Pinion 베어링2</th>
+                        <th>3 shaft Gear 베어링1</th>
+                        <th>3 shaft Gear 베어링2</th>
                     </tr>
                     <tr>
-                        <td scope="row">D</td>
-                        <td>1111</td>
-                        <td>1.1</td>
-                        <td>1.2</td>
-                        <td>1.3</td>
+                        <td scope="row"><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
                     </tr>
-                    </tbody>
+
+                    <!--                    row5-->
+                    <tr>
+                        <td rowspan="2">4 shaft</td>
+                        <th scope="row">4 shaft Pinion 베어링1</th>
+                        <th>4 shaft Pinion 베어링2</th>
+                        <th>4 shaft Gear 베어링1</th>
+                        <th>4 shaft Gear 베어링2</th>
+                    </tr>
+                    <tr>
+                        <td scope="row"><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                    </tr>
+
+                    <!--                    row6-->
+                    <tr>
+                        <td rowspan="2">5 shaft</td>
+                        <th scope="row">5 shaft Pinion 베어링1</th>
+                        <th>5 shaft Pinion 베어링2</th>
+                        <th>5 shaft Gear 베어링1</th>
+                        <th>5 shaft Gear 베어링2</th>
+                    </tr>
+                    <tr>
+                        <td scope="row"><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                        <td><input name="" /></td>
+                    </tr>
                 </table>
                 <div class="tab03_btn">
                     <input type="button" name="" value="검색" />

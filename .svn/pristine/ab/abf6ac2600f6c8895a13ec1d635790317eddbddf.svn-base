@@ -1,0 +1,56 @@
+
+
+<!-- #####TAB MENU START##### -->
+<div class="tab_menu">
+	<ul class="clearfix">
+		<li class="tab on"><p>모터 상태</p></li><!-- 선택 된 탭에 addClass('on') -->
+		<li class="tab"><p>기계 상태</p></li>
+		<li class="tab"><p>에너지 효율</p></li>
+		<li class="tab"><p>모터 정보</p></li>
+	</ul>
+</div>
+<!-- #####TAB MENU END##### -->
+
+
+<!-- #####TAB CONTENT START##### -->
+<div class="tab_content">
+	<ul class="status_list">
+		<li>
+			<p>모터 고정자 결함</p>
+			<span class="bgR">심각</span>
+			<!-- 각 상태별 span에 대한 클래스 설명 >>> 정상상태 : bgG / 관심상태 : bgY / 주의상태 : bgO / 심각상태 : bgR -->
+		</li>
+		<li>
+			<p>모터 정적 편심</p>
+			<span class="bgG">정상</span>
+		</li>
+		<li>
+			<p>모터 동적 편심</p>
+			<span class="bgG">정상</span>
+		</li>
+		<li>
+			<p>모터 회전자</p>
+			<span class="bgO">주의</span>
+		</li>
+		<li>
+			<p>모터 부하측 베어링</p>
+			<span class="bgY">관심</span>
+		</li>
+		<li>
+			<p>모터 반부하측 베어링</p>
+			<span class="bgG">정상</span>
+		</li>
+	</ul>
+</div>
+<!-- #####TAB CONTENT END##### -->
+
+
+<!-- #####BOTTOM BTN START##### -->
+<div class="bottom_btn">
+	<input type="button" name="" value="Trend View" />
+	<input type="button" name="" value="Spectrum View" />
+</div>
+<!-- #####BOTTOM BTN END##### -->
+
+</body>
+</html>

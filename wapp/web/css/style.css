@@ -103,7 +103,7 @@ body{background:#121419; overflow-x:hidden;}
 .motor_pop .pop_content .tab02 li{margin-bottom:2.22vh;}
 .motor_pop .pop_content .tab02 li input[type="text"]{width:12.5vw;}
 .motor_pop .pop_content table{width:46.87vw; margin:3vh auto;}
-.motor_pop .pop_content table th{height:5.5vh; font-size:18px; color:#fff; font-weight:normal; border-bottom:1px solid #444; border-right:1px solid #444; background:#242424;}
+.motor_pop .pop_content table th{height:5.5vh; font-size:16px; color:#fff; font-weight:normal; border-bottom:1px solid #444; border-right:1px solid #444; background:#242424;}
 .motor_pop .pop_content table th:last-child{border-right:none;}
 .motor_pop .pop_content table td{height:5.5vh; font-size:16px; color:#fff; font-weight:normal; border-bottom:1px solid #444; border-right:1px solid #444; background:#313131;}
 .motor_pop .pop_content table td:last-child{border-right:none;}

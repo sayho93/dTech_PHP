@@ -1,0 +1,173 @@
+@charset "utf-8";
+body{background:#121419; overflow-x:hidden;}
+.bgR{background:#d4434e !important;}
+.bgG{background:#2bc856 !important;}
+.bgY{background:#cdbd0d !important;}
+.bgO{background:#d78330 !important;}
+.bgP{background:#ae9bff !important;}
+.bgM{background:#4bfff0 !important;}
+.bgLG{background:#9de25d !important;}
+.bgLY{background:#ffde26 !important;}
+.bgDG{background:#242424 !important;}
+.align_C{text-align:center !important;}
+.paddingN{padding:0 !important;}
+.color_y{color:#cdbd0d !important;}
+.color_o{color:#d78330 !important;}
+.color_r{color:#d4434e !important;}
+
+/*#####LOGIN#####*/
+.login_page{background:url('../image/bg_login.png') repeat-x; background-size:cover;}
+.login{text-align:center;}
+.login h1{font-size:35px; color:#fff; padding:20vh 0;}
+.login .login_input input{font-size:14px; color:#fff; border-radius:3px; -webkit-border-radius:3px; -ms-border-radius:3px; background:#aaa; padding-left:10.54vw; border:none; height:6.25vh; width:56.12vw; background-size:5vw; background-repeat:no-repeat; background-position:2.77vw center;}
+.login .login_input input[type="text"]{margin-bottom:1.66vh; background-image:url('../image/ic_user.png');}
+.login .login_input input[type="password"]{background-image:url('../image/ic_lock.png');}
+.login input[type="button"]{background:#666; border-radius:3px; -webkit-border-radius:3px; -ms-border-radius:3px; font-weight:bold; font-size:17px; color:#fff; width:27.77vw; height:6.25vh; border:none; margin:3.12vh 0;}
+
+
+/*#####HEADER#####*/
+.header{z-index:9997;position:fixed; top:0px; width:100vw; height:7.8vh; background:url('../image/bg_title.png') repeat-x; background-size:contain; border-bottom:1px solid #444; text-align:center;}
+.header h2{font-size:22px; color:#fff; line-height:7.8vh;}
+.header h2.normal_title{font-weight:normal;}
+.header .title_btn{position:absolute; top:50%; margin-top:-2.2vh;}
+.header .title_btn.back{left:3.6vw;}
+.header .title_btn.menu{right:3.6vw;}
+.header .title_btn img{width:8.33vw;}
+
+
+/*#####SIDE MENU#####*/
+.side_bg{background:rgba(0, 0, 0, 0.6); position:fixed; top:0; left:0; z-index:998; width:100vw; height:100vh; display:none;}
+.side_menu{width:66.66vw; height:100vh; background:#393939; position:fixed; top:0; right:-80.54vw; z-index:999;}
+.side_menu h3{font-size:18px; color:#8acff8; line-height:12.5vh; text-align:center;}
+.side_menu h3 span{font-weight:normal;}
+.side_menu ul{width:100%;}
+.side_menu li{height:7.8vh; background:#313131; line-height:7.8vh;}
+.side_menu li:nth-child(even){background:#242424;}
+.side_menu li a{font-size:16px; color:#fff; display:inline-block; width:100%;}
+.side_menu li img{width:4.7vw; display:inline-block; vertical-align:middle; margin-top:-3px; padding:0 2.55vw 0 5.55vw;}
+.side_menu .logout{width:100%; height:6.5vh; line-height:6.5vh; position:absolute; bottom:0; right:0; background:#27292c; text-align:right;}
+.side_menu .logout a{font-size:16px; color:#fff; padding-right:3.6vw;}
+.side_menu .logout img{width:4.7vw; display:inline-block; vertical-align:middle; margin-top:-3px; padding-right:2.55vw;}
+.side_menu .side_exit{padding:4vmin; background:#444; line-height:13.88vmin; position:absolute; left:-13.88vmin; top:0; text-align:center;}/*width:13.88vmin; height:13.88vmin;*/
+.side_menu .side_exit img{width:6vw; display:inline-block; vertical-align:middle;}
+
+
+/*#####TAB MENU#####*/
+.tab_bg{background:#393939;}
+.tab_menu{width:100vw; margin-top: 7.8vh;}
+.tab_menu ul{padding:0 3.6vw; padding-top:1.25vh; background:#27292c;} 
+.tab_menu .tab{float:left; width:25%; height:6.25vh; line-height:6.25vh; background:#27292c; font-size:14px; color:#aaa; text-align:center;}
+.tab_menu .tab.on{color:#fff; background:#393939;}
+
+
+/*#####BOTTOM BTN#####*/
+.bottom_btn{width:100vw; height:7.8vh;padding-top:1.35vh; background:#151515; position:fixed; bottom:0;}
+.bottom_btn input{width:49.5%; height:4.68vh; text-align:center; font-size:16px; color:#fff; background:none; border:none; border-right:1px solid #fff; box-sizing:border-box;}
+.bottom_btn input:last-child{border-right:none;}
+
+/*Swiper Margin*/
+.swiper-container {padding-bottom: 13.83vh;}
+
+/*#####화면경로#####*/
+.view_route{width:92.8vw; height:4.68vh; padding:0 3.6vw; line-height:4.68vh; background:#333;}
+.view_route p{font-size:14px; color:#fff; display:inline-block;}
+.view_route span{font-size:14px; color:#fff; display:inline-block; margin:0 2vw;}
+
+
+/*#####FACTORY LIST#####*/
+.factory_list{width:100vw;}
+.factory_list .list{padding:0 3.6vw; background:#222; position:relative; border-bottom:1px solid #555; height:8vh;}
+.factory_list .list .factory_name{font-size:16px; color:#fff; line-height:8vh;}
+.factory_list .list .next_page{position:absolute; top:50%; right:3.6vw; margin-top:-1.6vh;}
+.factory_list .list .next_page img{width:6vw;}
+
+
+/*#####GROUP LIST#####*/
+.group_list{width:100vw; padding:0 3.6vw;}
+.group_list .list{display:inline-block; width:28.6vw; height:6.25vh; background:#424242; line-height:6.25vh; text-align:center; margin-right:2.8vw; margin-top:3.6vmin;}
+.group_list .list:active{background:#555;}
+.group_list .list p{font-size:15px; color:#fff;}
+
+
+/*#####MOTOR LIST#####*/
+.motor_list{width:100vw; padding:0 3.6vw;}
+.motor_list .list{display:table; width:28.6vw; height:12vh; background:#424242; text-align:center; margin-right:2.8vw; margin-top:3.6vmin;}/* display:table; line-height:6.25vh; */
+.motor_list .list p{font-size:14px; color:#fff; padding:0 6px; display:table-cell; vertical-align:middle;}
+
+
+/*#####TAB CONTENT#####*/
+.tab_content{padding:0 3.6vw; padding-top:3.6vmin; height:73vh; overflow-y:scroll;}
+.motor_info_content{height:66.5vh; padding-top:0; margin-top:3.6vmin;}
+
+	/*모터상태, 기계상태*/
+	.status_list{width:100%; border-top:1px solid #27292c; border-bottom:1px solid #27292c;}
+	.status_list li{padding:0 3.6vw; height:7.8vh; line-height:7.8vh; background:#313131; position:relative;}
+	.status_list li:nth-child(even){background:#242424;}
+	.status_list li p{font-size:16px; color:#fff; width:68vw;}
+	.status_list li span{display:inline-block; width:13.88vw; height:3.75vh; line-height:3.75vh; text-align:center; border-radius:3px; font-size:14px; color:#fff; position:absolute; right:3.6vw; top:50%; margin-top:-1.875vh;}
+
+	/*SELECT BOX*/
+	.select_area{margin-top:3.6vmin; text-align:right; padding:0 3.6vw;}
+	.select_area select{width:30.5vw; height:4.5vh; border:none; border-bottom:1px solid #aaa; font-size:13px; color:#aaa; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; background: url('../image/ic_drop_down.png') no-repeat 95% 50%; background-size:3.05vw; padding-left:2vw;}
+
+	/*테이블 공통*/
+	.table_common{width:100%; border-top:1px solid #27292c; border-bottom:1px solid #27292c;}
+	.table_common th{font-size:14px; font-weight:normal; color:#fff; height:7.8vh; background:#242424; text-align:left; padding-left:2.77vw; border-bottom:1px solid #444;}
+	.table_common tr:last-child th{border-bottom:none;}
+	.table_common td{font-size:14px; height:7.8vh; background:#313131; text-align:center; border-left:1px solid #444; border-bottom:1px solid #444;}
+	.table_common tr:last-child td{border-bottom:none;}
+
+	/*에너지효율*/
+	.energy_tbl td{color:#4bfff0;}
+	.energy_tbl td span{display:inline-block; margin-right:1.9vw; width:5.27vmin; height:5.27vmin; border-radius:100%; background:#fff; font-size:13px; color:#27292c; vertical-align:middle; margin-top:-3px;}
+
+	/*모터정보 > 기본정보*/
+	.normal_info_tbl td{color:#ffde26; text-align:left; padding-left:2.77vw;}
+
+	/*모터정보 > 명판정보*/
+	.nameplate_info_tbl td{color:#ffde26;}
+
+	/*모터정보 > 베어링정보*/
+	.bearing_info_tbl th{border-right:1px solid #444; text-align:center; padding-left:0;}
+	.bearing_info_tbl th:last-child{border-right:none;}
+	.bearing_info_tbl td{color:#fff; border-bottom:none; border-top:1px solid #444;}
+	.bearing_info_tbl td:first-child{border-left:none;}
+
+	/*모터정보 > 구동장치*/
+	.driving_device{width:100%;}
+	.driving_device li{padding:2vh 3vw; margin-bottom:2.5vh; background:#27292c;}
+	.driving_device .device_name{font-size:14px; color:#fff;}
+	.driving_device .binding_text{width:100%; background:#aaa; border:1px solid #777; height:5vh; line-height:4.6vh; box-sizing:border-box; margin-top:2vh;}
+	.driving_device .binding_text p{font-size:14px; color:#222; padding-left:2.5vw;}
+	.driving_device .binding_gear{margin-top:2vh;}
+	.driving_device .binding_gear p{font-size:14px; color:#fff; display:inline-block;}
+	.driving_device .binding_gear span{display:inline-block; font-size:14px; color:#aaa; margin-left:5.55vw; padding-left:7.5vw; background:url('../image/btn_radio_off.png') no-repeat center left; background-size:5vw;}
+	.driving_device .binding_gear span.on{color:#fff; background:url('../image/btn_radio_on.png') no-repeat center left; background-size:5vw;}
+	.driving_device .gear_table{width:100%; border:1px solid #444; margin-top:2vh;}
+	.driving_device .gear_table th{background:#242424; font-size:14px; color:#fff; height:5vh; border-bottom:1px solid #444; border-right:1px solid #444; text-align:center; font-weight:normal;}
+	.driving_device .gear_table tr:last-child th{border-bottom:none;}
+	.driving_device .gear_table td{background:#313131; font-size:14px; color:#fff; height:5vh; text-align:center; border-bottom:1px solid #444;}
+	.driving_device .gear_table tr:last-child td{border-bottom:none;}
+
+
+/*#####POPUP#####*/
+.pop_bg{background:rgba(0, 0, 0, 0.6);}
+.spectrum_view{width:92.65vw; height:92.5vh; background:#393939; position:absolute; top:50%; left:50%; margin-top:-46.25vh; margin-left:-46.325vw;}
+.spectrum_view .view_title{width:100%; height:11.11vh; background:#484848; position:relative; border-bottom:1px solid #323232;}
+.spectrum_view .view_title p{font-size:16px; color:#fff; text-align:center; line-height:11.11vh;}
+.spectrum_view .view_title .exit_btn{position:absolute; right:1.56vw; top:50%; margin-top:-2.25vh;}
+.spectrum_view .view_title .exit_btn img{width:3vw;}
+.spectrum_view .form_select{padding:0 1.56vw; margin:2.77vh 0;}
+.spectrum_view .form_select select{height:6vh; font-size:13px; border:1px solid #ccc; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; background:url('../image/ic_drop_down.png') no-repeat 95% 50%; background-size:1.71vw; background-color:#fff; padding:0 6vw 0 1.56vw; margin-right:2vw;}
+.spectrum_view .form_chk{padding-left:1.56vw; margin-bottom:2.77vh;}
+.spectrum_view .form_chk input[type="checkbox"]{display:none;}
+.spectrum_view .form_chk input[type="checkbox"] + label{font-size:13px; color:#fff; vertical-align:middle; display:inline-block;}/*height:100%;*/
+.spectrum_view .form_chk input[type="checkbox"] + label span{display:inline-block; background:url('../image/btn_chk_off.png') no-repeat center left; cursor:pointer; padding-left:3.2vw; line-height:20px; text-align:left; background-size:2.34vw; margin-right:2.5vw;}
+.spectrum_view .form_chk input[type="checkbox"]:checked + label span{background:url('../image/btn_chk_on.png') no-repeat center left; background-size:2.34vw;}
+.spectrum_view .graph_area{padding:0 1.56vw; height:58vh;}
+.spectrum_view .graph_area .graph{background:#27292c;}/*padding:1.94vh 1.56vw;*/
+.spectrum_view .graph_area02{padding:0 1.56vw; height:66vh;}
+.spectrum_view .graph_area02 .graph{background:#27292c; padding:1.94vh 1.56vw;}
+.spectrum_view .date_select span{font-size:13px; color:#fff; vertical-align:middle; padding:0 0.5vw;}
+.spectrum_view .date_select input[type="button"]{width:15.62vw; font-size:13px; color:#222; height:6vh; background:#c7c8ca; border:none; padding-right:2vw; background-image:url('../image/ic_date.png'); background-repeat:no-repeat; background-position:95% center; background-size:2.3vw;}
+.step2_view{height:auto;}
