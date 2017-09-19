@@ -23,8 +23,8 @@
       <file leaf-file-name="addMotorPop.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="29" column="58" lean-forward="true" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+            <state relative-caret-position="520">
+              <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding>
                 <element signature="n#style#0;n#select#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#div#2;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
@@ -33,11 +33,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wapp/mobile/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="WebMain.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wapp/common/classes/WebMain.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="95" column="27" lean-forward="false" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="27" />
+            <state relative-caret-position="603">
+              <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -74,7 +84,6 @@
       <find>tabContent</find>
       <find>display: none;</find>
       <find>hide</find>
-      <find>jSave</find>
       <find>_1</find>
       <find>level</find>
       <find>gearLevel</find>
@@ -85,6 +94,7 @@
       <find>jsave</find>
       <find>saveData</find>
       <find>swal</find>
+      <find>jSave</find>
     </findStrings>
     <replaceStrings>
       <replace>duratech</replace>
@@ -220,42 +230,7 @@
               <item name="duratech" type="b2602c69:ProjectViewProjectNode" />
               <item name="duratech" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="wapp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="duratech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duratech" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wapp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="duratech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duratech" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wapp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="duratech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duratech" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wapp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="image" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="duratech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duratech" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wapp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="duratech" type="b2602c69:ProjectViewProjectNode" />
-              <item name="duratech" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wapp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -342,7 +317,7 @@
       <workItem from="1505349872821" duration="19695000" />
       <workItem from="1505375186288" duration="2292000" />
       <workItem from="1505377549684" duration="47570000" />
-      <workItem from="1505712561527" duration="22429000" />
+      <workItem from="1505712561527" duration="26474000" />
     </task>
     <task id="LOCAL-00001" summary="디렉터리 구조 변경">
       <created>1504492340121</created>
@@ -362,7 +337,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183974000" />
+    <option name="totallyTimeSpent" value="188019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -508,6 +483,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="583">
           <caret line="116" column="60" lean-forward="true" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -658,17 +634,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/mobile/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/mobile/php/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="66" column="31" lean-forward="false" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -792,18 +762,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/mobile/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/common/classes/WebMain.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="95" column="27" lean-forward="false" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="27" />
+        <state relative-caret-position="603">
+          <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="29" column="58" lean-forward="true" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+        <state relative-caret-position="520">
+          <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#select#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#2;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />

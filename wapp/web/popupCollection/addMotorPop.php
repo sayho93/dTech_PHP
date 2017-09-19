@@ -26,6 +26,7 @@
         $("[name=f_group]").val($("#f_group").val());
     });
 
+    //모터 저장
     $(".jSave").click(function(){
         saveData(currentMotorIndex, wrapForm($("#form")));
 
@@ -33,13 +34,16 @@
             url: "/action_front.php?cmd=WebMain.saveMotors",
             async: false,
             cache: false,
+            type : 'post',
             data : {
                 motorInfo : json
             },
             dataType: 'json',
             success: function (data) {
-                if(data.returnCode == "1")
+                if(data.data.success == true)
                     swal("", processedRow + "개의 데이터를 성공적으로 저장했습니다.", "info");
+                else
+                    swal("","저장 실패", "error");
             }
         });
     });
@@ -151,6 +155,10 @@
         return res;
     }
 
+    /*
+    전역 json에 변경된 데이터 임시저장
+    index : jsonText 상의 모터 번호
+     */
     function saveData(index, row){
         var keys = Object.keys(row);
         var indexKeys = Object.keys(json[index]);
@@ -159,7 +167,8 @@
             if(indexKeys.includes(keys[e])) json[index][keys[e]] = currentValue;
         }
     }
-
+    
+    //모터 셀렉터 생성
     function initSelector(selector){
         selector.fadeIn();
         selector.html('');

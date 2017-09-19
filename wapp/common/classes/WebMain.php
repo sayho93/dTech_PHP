@@ -96,8 +96,8 @@ if(! class_exists("WebMain") )	{
         function saveMotors(){
             $jsonText = $this->req["motorInfo"];
 
-            $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
-            $actionUrl = "{$this->serverRoot}/data/motor/".$groupNo;
+            $request = $this->lnFn_Common_CrPost(array("json" => json_encode($jsonText)));
+            $actionUrl = "{$this->serverRoot}/data/saveMotor";
             $retVal = $this->getData($actionUrl, $request);
 
             return $retVal;
