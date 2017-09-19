@@ -6,15 +6,61 @@
  * Time: 오전 11:02
  */
 ?>
-<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
-<!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
-<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-<!--<script src="/inc/fileUpload/fileUploadJS.js"></script>-->
 
 <script>
     var json = null;
     var totalRow = 0;
     var processedRow = 0;
+    
+    //공장 리스트 추가
+    function getPlantList(){
+        var companyNo = $("[name=f_company]").val();
+        console.log("f_company: "+companyNo);
+        $.ajax({
+            url: "/action_front.php?cmd=WebMain.getFactoryList",
+            async: false,
+            cache: false,
+            data : {
+                companyNo : companyNo
+            },
+            dataType: 'json',
+            success: function (data) {
+                for(var i=0; i<data.data.length; i++){
+                    var object = $("#optionTemplate").html();
+                    object = object.replace("###", data.data[i]["plantName"]);
+                    object = object.replace("***", data.data[i]["id"]);
+                    $("#f_plant").append(object);
+                }
+            }
+        });
+    }
+
+    //TODO 공장 바뀌었을 때 그룹 리스트
+    
+    //TODO 모터 리스트 바뀌었을 때 공장 리스트 / 그룹 리트스
+
+    //그룹 리스트 추가
+    function getGroupList(){
+        var factoryNo = $("[name=f_plant]").val();
+        console.log("f_plant: "+factoryNo);
+        $.ajax({
+            url: "/action_front.php?cmd=WebMain.getGroupList",
+            async: false,
+            cache: false,
+            data : {
+                factoryNo : factoryNo
+            },
+            dataType: 'json',
+            success: function (data) {
+                for(var i=0; i<data.data.length; i++){
+                    var object = $("#optionTemplate").html();
+                    object = object.replace("###", data.data[i]["groupName"]);
+                    object = object.replace("***", data.data[i]["id"]);
+                    $("#f_group").append(object);
+                }
+            }
+        });
+    }
 
     function initFileUpload(index){
         $("#btnFileUpload" + index).css("cursor", "pointer").click(function(){
@@ -45,6 +91,9 @@
                             swal("", processedRow + "개의 데이터를 성공적으로 로드했습니다.", "info");
 
                             initData(data.data.list);
+
+                            getPlantList();
+                            getGroupList();
                         },
                         error : function(req, res, err){
                             alert(req+res+err);
@@ -104,7 +153,6 @@
     }
 
     function bindData(row){
-        console.log();
         set(row, Object.keys(row));
     }
 
@@ -134,9 +182,42 @@
             var activeTab = $(this).attr("rel");
             $("#" + activeTab).fadeIn();
         });
-
     });
+
+    //구동장치
+    $(function(){
+        $("[name=level]").change(function(){
+            var idx = $("[name=level]:checked").val();
+            toggleLevel(idx, 1)
+        });
+        $("[name=level_2]").change(function(){
+            var idx = $("[name=level_2]:checked").val();
+            toggleLevel(idx, 2);
+        });
+
+        $(".driveSelector").change(function(){
+            var target = $(this).attr("target");
+            var type = $(this).val();
+
+            $("."+ target).hide();
+            $("#"+target + "> #"+type+"Area").show();
+        });
+    });
+
+    //기어 단수 변경
+    function toggleLevel(idx, target){
+        console.log(idx+":::"+target);
+        $(".gearLevel"+"_"+target).hide();
+        $(".gearLevel"+"_"+target+".level"+idx).show();
+    }
 </script>
+
+
+<div id="optionTemplate">
+    <option value="***">###</option>
+</div>
+
+
 <form id="form">
 <div class="popup_area01 jAddMotorPop">
     <div class="motor_pop">
@@ -160,17 +241,21 @@
         </ul>
 
         <div class="pop_content">
+<!--            기존 정보-->
             <div class="tabContent" id="tabs-1">
+                <input type="hidden" name="f_company" />
+                <input type="hidden" name="f_plant" />
+                <input type="hidden" name="f_group" />
                 <ul>
                     <li>
                         <p>공장 선택</p>
-                        <select name="f_plant">
+                        <select id="f_plant" name="">
                             <option>선택</option>
                         </select>
                     </li>
                     <li>
                         <p>그룹 선택</p>
-                        <select name="f_group">
+                        <select id="f_group" name="">
                             <option>선택</option>
                         </select>
                     </li>
@@ -231,6 +316,7 @@
                 </ul>
             </div>
 
+<!--            명판 정보-->
             <div class="tab02 clearfix tabContent" id="tabs-2">
                 <ul class="left_area f_l">
                     <li>
@@ -282,6 +368,7 @@
                 </ul>
             </div>
 
+<!--            베어링 정보-->
             <div class="tab03 tabContent" id="tabs-3">
                 <table class="tbl" style="text-align: center">
                     <colgroup>
@@ -387,69 +474,281 @@
                 </div>
             </div>
 
+<!--            구동장치-->
             <ul class="tab04 clearfix tabContent" id="tabs-4">
                 <li class="type1">
                     <p class="title">구동장치-1</p>
-                    <select>
-                        <option>기어박스</option>
+                    <select class="driveSelector" target="drive1Area">
+                        <option value="GB" selected>기어박스 구동</option>
+                        <option value="VB">V-Belt 구동</option>
+                        <option value="pump">펌프 구동</option>
+                        <option value="fan">팬 구동</option>
                     </select>
-                    <div class="form">
-                        <span class="name">기어 단수</span>
-                        <input type="radio" name="radio" id="ra6" />
-                        <label for="ra6"><span>1</span></label>
-                        <input type="radio" name="radio" id="ra7" />
-                        <label for="ra7"><span>2</span></label>
-                        <input type="radio" name="radio" id="ra8" />
-                        <label for="ra8"><span>3</span></label>
-                        <input type="radio" name="radio" id="ra9" />
-                        <label for="ra9"><span>4</span></label>
+                    <div class="form" id="drive1Area">
+                        <div class="drive1Area" id="GBArea">
+                            <span class="name">기어 단수</span>
+                            <input type="radio" name="level" id="ra6" value="1" checked/>
+                            <label for="ra6"><span>1</span></label>
+                            <input type="radio" name="level" id="ra7" value="2"/>
+                            <label for="ra7"><span>2</span></label>
+                            <input type="radio" name="level" id="ra8" value="3"/>
+                            <label for="ra8"><span>3</span></label>
+                            <input type="radio" name="level" id="ra9" value="4"/>
+                            <label for="ra9"><span>4</span></label>
+
+                            <table class="tbl">
+                                <colgroup>
+                                    <col width="60%"/>
+                                    <col width="40%"/>
+                                </colgroup>
+                                <tbody>
+                                <tr class="gearLevel_1 level1">
+                                    <th>Pinion</th>
+                                    <td><input name="pinionValueLevel1_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level1">
+                                    <th>Gear</th>
+                                    <td><input name="gearValueLevel1_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level1">
+                                    <th>기어비</th>
+                                    <td><input name="gearRatioLevel1_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level2 hide">
+                                    <th>Pinion</th>
+                                    <td><input name="pinionValueLevel2_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level2 hide">
+                                    <th>Gear</th>
+                                    <td><input name="gearValueLevel2_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level2 hide">
+                                    <th>기어비</th>
+                                    <td><input name="gearRatioLevel2_1"/></td>
+                                </tr>
+
+                                <tr class="gearLevel_1 level3 hide">
+                                    <th>Pinion</th>
+                                    <td><input name="pinionValueLevel3_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level3 hide">
+                                    <th>Gear</th>
+                                    <td><input name="gearValueLevel3_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level3 hide">
+                                    <th>기어비</th>
+                                    <td><input name="gearRatioLevel3_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level4 hide">
+                                    <th>Pinion</th>
+                                    <td><input name="pinionValueLevel4_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level4 hide">
+                                    <th>Gear</th>
+                                    <td><input name="gearValueLevel4_1"/></td>
+                                </tr>
+                                <tr class="gearLevel_1 level4 hide">
+                                    <th>기어비</th>
+                                    <td><input name="gearRatioLevel4_1"/></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="drive1Area hide" id="VBArea">
+                            <table class="tbl">
+                                <colgroup>
+                                    <col width="60%" />
+                                    <col width="40%" />
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th>구동폴리직경</th>
+                                    <td><input name="vBeltPulleyValue1_1" /></td>
+                                </tr>
+                                <tr>
+                                    <th>중심거리</th>
+                                    <td><input name="vBeltPulleyValue2_1" /></td>
+                                </tr>
+                                <tr>
+                                    <th>종동폴리직경</th>
+                                    <td><input name="vBeltLength_1" /></td>
+                                </tr>
+                                </tbody>
+<!--                                <span class="caption">(단위 : mm)</span>-->
+                            </table>
+
+                        </div>
+
+                        <div class="drive1Area hide" id="pumpArea">
+                            <table class="tbl">
+                                <colgroup>
+                                    <col width="60%" />
+                                    <col width="40%" />
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th>임펠러/Blade 숫자</th>
+                                    <td><input name="pumpBladeNo_1" /></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="drive1Area hide" id="fanArea">
+                            <table class="tbl">
+                                <colgroup>
+                                    <col width="60%" />
+                                    <col width="40%" />
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th>임펠러/Blade 숫자</th>
+                                    <td><input name="fanBladeNo_1" /></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <table class="tbl">
-                        <colgroup>
-                            <col width="60%" />
-                            <col width="40%" />
-                        </colgroup>
-                        <tbody>
-                        <tr>
-                            <th>1shaft 기어 잇수-1</th>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th>1shaft 기어 잇수-2</th>
-                            <td>0</td>
-                        </tr>
-                        </tbody>
-                    </table>
                 </li>
-                <li class="type2 tabContent">
+
+                <li class="type2">
                     <p class="title">구동장치-2</p>
-                    <select>
-                        <option>폴리-벨트</option>
+                    <select class="driveSelector" target="drive2Area">
+                        <option value="GB">기어박스 구동</option>
+                        <option value="VB" selected>V-Belt 구동</option>
+                        <option value="pump">펌프 구동</option>
+                        <option value="fan">팬 구동</option>
                     </select>
-                    <table class="tbl">
-                        <colgroup>
-                            <col width="60%" />
-                            <col width="40%" />
-                        </colgroup>
-                        <tbody>
-                        <tr>
-                            <th>구동폴리직경</th>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th>중심거리</th>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th>종동폴리직경</th>
-                            <td>0</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <span class="caption">(단위 : mm)</span>
+                    <div class="form" id="drive2Area">
+                        <div class="drive2Area hide" id="GBArea">
+                            <span class="name">기어 단수</span>
+                            <input type="radio" name="level_2" id="ra10" value="1" checked/>
+                            <label for="ra10"><span>1</span></label>
+                            <input type="radio" name="level_2" id="ra11" value="2"/>
+                            <label for="ra11"><span>2</span></label>
+                            <input type="radio" name="level_2" id="ra12" value="3"/>
+                            <label for="ra12"><span>3</span></label>
+                            <input type="radio" name="level_2" id="ra13" value="4"/>
+                            <label for="ra13"><span>4</span></label>
+
+                            <table class="tbl">
+                                <colgroup>
+                                    <col width="60%"/>
+                                    <col width="40%"/>
+                                </colgroup>
+                                <tbody>
+                                <tr class="gearLevel_2 level1">
+                                    <th>Pinion</th>
+                                    <td><input name="pinionValueLevel1_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level1">
+                                    <th>Gear</th>
+                                    <td><input name="gearValueLevel1_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level1">
+                                    <th>기어비</th>
+                                    <td><input name="gearRatioLevel1_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level2 hide">
+                                    <th>Pinion</th>
+                                    <td><input name="pinionValueLevel2_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level2 hide">
+                                    <th>Gear</th>
+                                    <td><input name="gearValueLevel2_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level2 hide">
+                                    <th>기어비</th>
+                                    <td><input name="gearRatioLevel2_2"/></td>
+                                </tr>
+
+                                <tr class="gearLevel_2 level3 hide">
+                                    <th>Pinion</th>
+                                    <td><input name="pinionValueLevel3_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level3 hide">
+                                    <th>Gear</th>
+                                    <td><input name="gearValueLevel3_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level3 hide">
+                                    <th>기어비</th>
+                                    <td><input name="gearRatioLevel3_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level4 hide">
+                                    <th>Pinion</th>
+                                    <td><input name="pinionValueLevel4_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level4 hide">
+                                    <th>Gear</th>
+                                    <td><input name="gearValueLevel4_2"/></td>
+                                </tr>
+                                <tr class="gearLevel_2 level4 hide">
+                                    <th>기어비</th>
+                                    <td><input name="gearRatioLevel4_2"/></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="drive2Area" id="VBArea">
+                            <table class="tbl">
+                                <colgroup>
+                                    <col width="60%" />
+                                    <col width="40%" />
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th>구동폴리직경</th>
+                                    <td><input name="vBeltPulleyValue1_2" /></td>
+                                </tr>
+                                <tr>
+                                    <th>중심거리</th>
+                                    <td><input name="vBeltPulleyValue2_2" /></td>
+                                </tr>
+                                <tr>
+                                    <th>종동폴리직경</th>
+                                    <td><input name="vBeltLength_2" /></td>
+                                </tr>
+                                </tbody>
+                            </table>
+<!--                            <span class="caption">(단위 : mm)</span>-->
+                        </div>
+
+                        <div class="drive2Area hide" id="pumpArea">
+                            <table class="tbl">
+                                <colgroup>
+                                    <col width="60%" />
+                                    <col width="40%" />
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th>임펠러/Blade 숫자</th>
+                                    <td><input name="pumpBladeNo_2" /></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="drive2Area hide" id="fanArea">
+                            <table class="tbl">
+                                <colgroup>
+                                    <col width="60%" />
+                                    <col width="40%" />
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th>임펠러/Blade 숫자</th>
+                                    <td><input name="fanBladeNo_2" /></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </li>
             </ul>
 
+<!--            데이터 수집 시간-->
             <ul class="tab05 tabContent" id="tabs-5">
                 <li>
                     <p>데이터 수집 시간</p>
@@ -477,6 +776,7 @@
                 </li>
             </ul>
 
+<!--            알람 기준값-->
             <div class="tab06 tabContent" id="tabs-6">
                 <table class="tbl">
                     <colgroup>

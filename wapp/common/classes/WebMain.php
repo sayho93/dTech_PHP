@@ -58,7 +58,10 @@ if(! class_exists("WebMain") )	{
 
         //App factory List Api
         function getFactoryList(){
-            $companyNo = $this->webUser[companyNo];
+            if($this->req["companyNo"] == "")
+                $companyNo = $this->webUser[companyNo];
+            else
+                $companyNo = $this->req["companyNo"];
 
             $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
             $actionUrl = "{$this->serverRoot}/data/plant/".$companyNo;
