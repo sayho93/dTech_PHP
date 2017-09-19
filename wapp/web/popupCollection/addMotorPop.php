@@ -11,10 +11,29 @@
     var json = null;
     var totalRow = 0;
     var processedRow = 0;
-    
+
+    //현재 모터 위치
+    var currentMotorIndex = 0;
+
+    //TODO 공장 바뀌었을 때 그룹 리스트
+    $("#f_plant").change(function(){
+        $("[name=f_plant]").val($("#f_plant").val());
+
+        getGroupList();
+    });
+
+    $("#f_group").change(function(){
+        $("[name=f_group]").val($("#f_group").val());
+    });
+
+    $(".jSave").click(function(){
+        saveData(currentMotorIndex, wrapForm($("#form")));
+    });
+
     //공장 리스트 추가
     function getPlantList(){
         var companyNo = $("[name=f_company]").val();
+        var plantNo = $("[name=f_plant]").val();
         console.log("f_company: "+companyNo);
         $.ajax({
             url: "/action_front.php?cmd=WebMain.getFactoryList",
@@ -25,23 +44,22 @@
             },
             dataType: 'json',
             success: function (data) {
+                $("#f_plant").empty();
                 for(var i=0; i<data.data.length; i++){
                     var object = $("#optionTemplate").html();
                     object = object.replace("###", data.data[i]["plantName"]);
                     object = object.replace("***", data.data[i]["id"]);
                     $("#f_plant").append(object);
                 }
+                $("#f_plant > option[value='"+ plantNo +"']").prop("selected", true);
             }
         });
     }
 
-    //TODO 공장 바뀌었을 때 그룹 리스트
-    
-    //TODO 모터 리스트 바뀌었을 때 공장 리스트 / 그룹 리트스
-
     //그룹 리스트 추가
     function getGroupList(){
         var factoryNo = $("[name=f_plant]").val();
+        var groupNo = $("[name=f_group]").val();
         console.log("f_plant: "+factoryNo);
         $.ajax({
             url: "/action_front.php?cmd=WebMain.getGroupList",
@@ -52,12 +70,14 @@
             },
             dataType: 'json',
             success: function (data) {
+                $("#f_group").empty();
                 for(var i=0; i<data.data.length; i++){
                     var object = $("#optionTemplate").html();
                     object = object.replace("###", data.data[i]["groupName"]);
                     object = object.replace("***", data.data[i]["id"]);
                     $("#f_group").append(object);
                 }
+                $("#f_group > option[value='"+ groupNo +"']").prop("selected", true);
             }
         });
     }
@@ -104,11 +124,6 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
-
-        $(".jSave").click(function(){
-            saveData(0, wrapForm($("#form")));
-            console.log(json[0]);
-        });
     }
 
     initFileUpload(100);
@@ -139,7 +154,10 @@
         }
 
         selector.change(function(){
+            saveData(currentMotorIndex, wrapForm($("#form")));
+            currentMotorIndex = selector.val();
             bindData(json[selector.val()]);
+            //TODO 모터 리스트 바뀌었을 때 공장 리스트 / 그룹 리트스
         });
     }
 
@@ -159,14 +177,11 @@
     function set(row, aliases){
         for(var e = 0; e < aliases.length; e++) {
             var alias = aliases[e];
-            //checkbox일 경우
-            if($("[name=" + alias + "]").attr("type") == "radio"){
-//                console.log(alias+"::"+row[alias]);
+            //radio일 경우
+            if($("[name=" + alias + "]").attr("type") == "radio")
                 $("[name=" + alias + "][value=" + row[alias] + "]").prop("checked", true);
-            }
-            else {
+            else
                 $("[name=" + alias + "]").val(row[alias]);
-            }
         }
     }
 

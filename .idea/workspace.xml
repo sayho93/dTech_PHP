@@ -23,8 +23,8 @@
       <file leaf-file-name="addMotorPop.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="863">
-              <caret line="554" column="36" lean-forward="true" selection-start-line="554" selection-start-column="36" selection-end-line="554" selection-end-column="36" />
+            <state relative-caret-position="360">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#select#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#div#2;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
@@ -55,10 +55,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>jPopSection</find>
-      <find>.fadeO</find>
-      <find>tab_menu</find>
-      <find>bottom_btn</find>
       <find>998</find>
       <find>exit</find>
       <find>z-index</find>
@@ -85,6 +81,10 @@
       <find>gearLevel</find>
       <find>level_2</find>
       <find>구동장치</find>
+      <find>motorIndex</find>
+      <find>saveD</find>
+      <find>jsave</find>
+      <find>saveData</find>
     </findStrings>
     <replaceStrings>
       <replace>duratech</replace>
@@ -342,7 +342,7 @@
       <workItem from="1505349872821" duration="19695000" />
       <workItem from="1505375186288" duration="2292000" />
       <workItem from="1505377549684" duration="47570000" />
-      <workItem from="1505712561527" duration="19800000" />
+      <workItem from="1505712561527" duration="21295000" />
     </task>
     <task id="LOCAL-00001" summary="디렉터리 구조 변경">
       <created>1504492340121</created>
@@ -362,7 +362,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181345000" />
+    <option name="totallyTimeSpent" value="182840000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-20" y="8" width="1936" height="1066" extended-state="0" />
@@ -802,8 +802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="863">
-          <caret line="554" column="36" lean-forward="true" selection-start-line="554" selection-start-column="36" selection-end-line="554" selection-end-column="36" />
+        <state relative-caret-position="360">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#select#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#2;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
