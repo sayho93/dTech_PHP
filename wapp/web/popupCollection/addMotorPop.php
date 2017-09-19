@@ -29,7 +29,6 @@
     //모터 저장
     $(".jSave").click(function(){
         saveData(currentMotorIndex, wrapForm($("#form")));
-
         $.ajax({
             url: "/action_front.php?cmd=WebMain.saveMotors",
             async: false,
@@ -924,8 +923,7 @@
 
             <div class="f_r">
                 <input type="button" class="JClose" target="jAddMotorPop" value="취소" />
-                <input type="button" name="" value="확인" />
-                <input type="button" class="jSave" name="" value="적용" />
+                <input type="button" class="jSave" name="" value="저장" />
             </div>
         </div>
     </div>
