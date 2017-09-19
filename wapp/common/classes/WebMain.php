@@ -91,6 +91,17 @@ if(! class_exists("WebMain") )	{
 
             return $retVal;
         }
+
+        //Web motor save Api
+        function saveMotors(){
+            $jsonText = $this->req["motorInfo"];
+
+            $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
+            $actionUrl = "{$this->serverRoot}/data/motor/".$groupNo;
+            $retVal = $this->getData($actionUrl, $request);
+
+            return $retVal;
+        }
     }
 }
 ?>

@@ -28,6 +28,20 @@
 
     $(".jSave").click(function(){
         saveData(currentMotorIndex, wrapForm($("#form")));
+
+        $.ajax({
+            url: "/action_front.php?cmd=WebMain.saveMotors",
+            async: false,
+            cache: false,
+            data : {
+                motorInfo : json
+            },
+            dataType: 'json',
+            success: function (data) {
+                if(data.returnCode == "1")
+                    swal("", processedRow + "개의 데이터를 성공적으로 저장했습니다.", "info");
+            }
+        });
     });
 
     //공장 리스트 추가
@@ -158,6 +172,9 @@
             currentMotorIndex = selector.val();
             bindData(json[selector.val()]);
             //TODO 모터 리스트 바뀌었을 때 공장 리스트 / 그룹 리트스
+
+            getPlantList();
+            getGroupList();
         });
     }
 
