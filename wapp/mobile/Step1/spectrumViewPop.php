@@ -174,7 +174,5 @@ echo "<script>console.log('".json_encode($graphData)."');</script>";
         <div class="graph" id="graphLV"> </div>
         <div class="graph" id="graphHV" style="display: none"></div>
         <div class="graph" id="graphLA" style="display: none"></div>
-
     </div>
-
 </div>

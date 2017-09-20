@@ -9,6 +9,9 @@
 
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/header.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/sideMenu.php" ;?>
+<?
+
+?>
     <script>
         $(document).ready(function(){
             var ID = "<?=$_REQUEST[no]?>";

@@ -528,7 +528,17 @@ if (! class_exists("Common"))
             return (curl_exec($curl_obj));
         }
 
-        function getData($actionUrl, $postData){
+        function getData($actionUrl, $request=array()) {
+            $url = $actionUrl . "?" . http_build_query($request, '', '&');
+
+            $curl_obj = curl_init();
+            curl_setopt($curl_obj, CURLOPT_URL, $url);
+            curl_setopt($curl_obj, CURLOPT_SSL_VERIFYPEER, true);
+            curl_setopt($curl_obj, CURLOPT_RETURNTRANSFER, true);
+            return  (curl_exec($curl_obj));
+        }
+
+        function postData($actionUrl, $postData) {
             $curl_obj = curl_init();
             curl_setopt($curl_obj, CURLOPT_URL, $actionUrl);
             curl_setopt($curl_obj, CURLOPT_SSL_VERIFYPEER, true);

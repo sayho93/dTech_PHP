@@ -9,6 +9,12 @@
 
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/header.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/sideMenu.php" ;?>
+<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebMain.php" ;?>
+<?
+$mainObj = new WebMain($_REQUEST);
+
+$companyInfo = json_decode($mainObj->getCompanyInfo())->data;
+?>
 
 <script>
     $(document).ready(function(){
@@ -31,7 +37,7 @@
         $(document).on("click", ".jToGroup", function(){
             var ID = $(this).attr("no");
 
-           location.href = "/mobile/groupList.php?no="+ID;
+           location.href = "/mobile/groupList.php?pKey="+ID+"&cKey="+"<?=$loginInfo["companyNo"]?>";
         });
 
     });
@@ -40,8 +46,7 @@
 <div style="height:7.8vh; top:0; width: 100vh;"></div>
 
 <div class="view_route">
-    <p>리치웨어시스템즈</p>
-    <span>></span><!-- 경로(p태그)와 경로 사이에 좌측 span태그 추가 -->
+    <p><?=$companyInfo->companyName?></p>
 </div>
 
 

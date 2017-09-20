@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: p
+ * User: sayho
  * Date: 2017-09-12
  * Time: 오후 4:44
  */
@@ -9,7 +9,6 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/header.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/sideMenu.php" ;?>
-
 <script>
     $(function(){
         $(".jStep2").click2(function(){

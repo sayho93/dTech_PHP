@@ -9,10 +9,22 @@
 
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/header.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/mobile/php/sideMenu.php" ;?>
+<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebMain.php" ;?>
+<?
+$mainObj = new WebMain($_REQUEST);
+
+$companyInfo = json_decode($mainObj->getCompanyInfo())->data;
+$plantInfo = json_decode($mainObj->getFactoryInfo())->data;
+$groupInfo = json_decode($mainObj->getGroupInfo())->data;
+?>
 <script>
     $(document).ready(function(){
         $(".jBack").show();
-        var ID = "<?=$_REQUEST[no]?>";
+        var cKey = "<?=$_REQUEST[cKey]?>";
+        var pKey = "<?=$_REQUEST[pKey]?>";
+
+
+        var ID = "<?=$_REQUEST[gKey]?>";
         $.ajax({
             url: "/action_front.php?cmd=WebMain.getMotorList",
             async: false,
@@ -38,9 +50,9 @@
         });
 
         $(".jToStep1").click(function(){
-            var ID = $(this).attr("no");
+            var mKey = $(this).attr("no");
             var motorName = $(this).children().html();
-            location.href = "/mobile/Step1/motorInfo.php?no="+ID+"&motorName="+motorName;
+            location.href = "/mobile/Step1/motorInfo.php?mKey="+mKey+"&motorName="+motorName;
         });
 
 
@@ -49,10 +61,14 @@
 
 
 <div style="height:7.8vh; top:0; width: 100vh;"></div>
-<div class="view_route">
-    <p>리치웨어시스템즈</p>
-    <span>></span><!-- 경로(p태그)와 경로 사이에 좌측 span태그 추가 -->
-</div>
+
+    <div class="view_route">
+        <p><?=$companyInfo->companyName?></p>
+        <span>></span>
+        <p><?=$plantInfo->plantName?></p>
+        <span>></span>
+        <p><?=$groupInfo->groupName?></p>
+    </div>
 
 <!--motor list template-->
 <div id="motorEntity" class="clearfix" style="display:none">

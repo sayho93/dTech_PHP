@@ -8,11 +8,17 @@
 ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/header.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ;?>
+<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebMain.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/sideMenu.php" ;?>
 <?
 $obj = new WebUser($_REQUEST);
+$mainObj = new WebMain($_REQUEST);
 
 $webUser = $obj->webUser["userNo"];
+
+$companyInfo = json_decode($mainObj->getCompanyInfo())->data;
+$plantInfo = json_decode($mainObj->getFactoryInfo());
+$groupInfo = json_decode($mainObj->getGroupInfo());
 ?>
 
 <script>
@@ -119,7 +125,7 @@ $webUser = $obj->webUser["userNo"];
                 }
 
                 var cursor = ++drawIndex;
-                var entry = {id: cursor, label: nMotor, group: 3, mKey : pMotor};
+                var entry = {id: cursor, label: nMotor, group: 3, mKey : pMotor, cKey : pCompany, pKey : pPlant, gKey : pGroup};
                 nodes.push(entry);
 
                 edges.push({from : cursor, to : gMap.get(pGroup).id})
@@ -150,7 +156,7 @@ $webUser = $obj->webUser["userNo"];
 
                     if(clickedNodes.mKey){
                         console.log("motor clicked");
-                        location.href = "/web/step1.php?mKey="+clickedNodes.mKey;
+                        location.href = "/web/step1.php?mKey="+clickedNodes.mKey+"&cKey="+clickedNodes.cKey+"&pKey"+clickedNodes.pKey+"&gKey="+clickedNodes.gKey;
                     }
                 }
 
@@ -164,11 +170,15 @@ $webUser = $obj->webUser["userNo"];
 
 <div class="route">
     <p>
-        회사명
-        <span>></span>
-        공장1
-        <span>></span>
-        그룹1
+        <?=$companyInfo->companyName?>
+        <?if($plantInfo != ""){?>
+            <span>></span>
+            <?=$plantInfo->plantName?>
+        <?}?>
+        <?if($groupInfo != ""){?>
+            <span>></span>
+            <?=$groupInfo->groupName?>
+        <?}?>
     </p>
 </div>
 
@@ -184,10 +194,7 @@ $webUser = $obj->webUser["userNo"];
 
 <div class="jPopSection" style="position: absolute; z-index:999; top: 12vh; left:10vh">
 
-
 </div>
-
-
 
 <div class="view_info">
     <dl>

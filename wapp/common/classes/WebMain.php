@@ -13,7 +13,7 @@ if(! class_exists("WebMain") )	{
 
             $request = $this->lnFn_Common_CrPost(array("level" => 0 ));
             $actionUrl = "{$this->serverRoot}/map/company/".$companyNo;
-            $retVal = $this->getData($actionUrl, $request);
+            $retVal = $this->postData($actionUrl, $request);
 
             return $retVal;
         }
@@ -27,7 +27,7 @@ if(! class_exists("WebMain") )	{
 
             $request = $this->lnFn_Common_CrPost(array("url" => $filePathMotorInfo ));
             $actionUrl = "{$this->serverRoot}/data/parse";
-            $retVal = $this->getData($actionUrl, $request);
+            $retVal = $this->postData($actionUrl, $request);
 
             return $retVal;
         }
@@ -51,7 +51,19 @@ if(! class_exists("WebMain") )	{
             $paramsArray = array("id" => $id);
             $request = $this->lnFn_Common_CrPost($paramsArray);
             $actionUrl = "{$this->serverRoot}/data/spectrum/".$motorNo;
-            $retVal = $this->getData($actionUrl, $request);
+            $retVal = $this->postData($actionUrl, $request);
+
+            return $retVal;
+        }
+
+        function getCompanyInfo(){
+            if($this->req["cKey"] == "")
+                $companyNo = $this->webUser[companyNo];
+            else
+                $companyNo = $this->req["cKey"];
+
+            $actionUrl = "{$this->serverRoot}/data/company/detail/".$companyNo;
+            $retVal = $this->getData($actionUrl);
 
             return $retVal;
         }
@@ -65,7 +77,17 @@ if(! class_exists("WebMain") )	{
 
             $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
             $actionUrl = "{$this->serverRoot}/data/plant/".$companyNo;
-            $retVal = $this->getData($actionUrl, $request);
+            $retVal = $this->postData($actionUrl, $request);
+
+            return $retVal;
+        }
+
+        function getFactoryInfo(){
+            $factoryNo = $this->req["pKey"];
+
+
+            $actionUrl = "{$this->serverRoot}/data/plant/detail/".$factoryNo;
+            $retVal = $this->getData($actionUrl);
 
             return $retVal;
         }
@@ -76,7 +98,16 @@ if(! class_exists("WebMain") )	{
 
             $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
             $actionUrl = "{$this->serverRoot}/data/group/".$factoryNo;
-            $retVal = $this->getData($actionUrl, $request);
+            $retVal = $this->postData($actionUrl, $request);
+
+            return $retVal;
+        }
+
+        function getGroupInfo(){
+            $groupNo = $this->req["gKey"];
+
+            $actionUrl = "{$this->serverRoot}/data/group/detail/".$groupNo;
+            $retVal = $this->getData($actionUrl);
 
             return $retVal;
         }
@@ -87,7 +118,17 @@ if(! class_exists("WebMain") )	{
 
             $request = $this->lnFn_Common_CrPost(array("page" => 0 ));
             $actionUrl = "{$this->serverRoot}/data/motor/".$groupNo;
-            $retVal = $this->getData($actionUrl, $request);
+            $retVal = $this->postData($actionUrl, $request);
+
+            return $retVal;
+        }
+
+        //motorInfo Api
+        function getMotorInfo(){
+            $uuid = $this->req["uuid"];
+
+            $actionUrl = "{$this->serverRoot}/data/motor/detail/".$uuid;
+            $retVal = $this->getData($actionUrl);
 
             return $retVal;
         }
@@ -98,7 +139,7 @@ if(! class_exists("WebMain") )	{
 
             $request = $this->lnFn_Common_CrPost(array("json" => json_encode($jsonText)));
             $actionUrl = "{$this->serverRoot}/data/saveMotor";
-            $retVal = $this->getData($actionUrl, $request);
+            $retVal = $this->postData($actionUrl, $request);
 
             return $retVal;
         }
