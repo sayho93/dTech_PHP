@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="9608e701-dab3-4675-8084-7b4099daf5af" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wapp/web/step2.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wapp/web/step1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wapp/web/step2.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea" afterPath="$PROJECT_DIR$/.idea" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/common/classes/WebBase.php" afterPath="$PROJECT_DIR$/wapp/common/classes/WebBase.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/common/classes/WebMain.php" afterPath="$PROJECT_DIR$/wapp/common/classes/WebMain.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/common/classes/comm/Constants.php" afterPath="$PROJECT_DIR$/wapp/common/classes/comm/Constants.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/web/css/style.css" afterPath="$PROJECT_DIR$/wapp/web/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/mobile/css/style.css" afterPath="$PROJECT_DIR$/wapp/mobile/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/mobile/motorList.php" afterPath="$PROJECT_DIR$/wapp/mobile/motorList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/web/main.php" afterPath="$PROJECT_DIR$/wapp/web/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php" afterPath="$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/web/popupCollection/spectrumViewPop.php" afterPath="$PROJECT_DIR$/wapp/web/popupCollection/spectrumViewPop.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wapp/web/step1.php" afterPath="$PROJECT_DIR$/wapp/web/step1.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,57 +27,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="addMotorPop.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addMotorPop.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="914" column="18" lean-forward="true" selection-start-line="914" selection-start-column="18" selection-end-line="914" selection-end-column="18" />
+            <state relative-caret-position="381">
+              <caret line="213" column="18" lean-forward="true" selection-start-line="213" selection-start-column="18" selection-end-line="213" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spectrumViewPop.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/spectrumViewPop.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#select#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#2;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#li#0;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#li#2;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#li#3;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wapp/mobile/main.php">
+      <file leaf-file-name="step1.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wapp/web/step1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wapp/web/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="783">
-              <caret line="223" column="7" lean-forward="true" selection-start-line="223" selection-start-column="7" selection-end-line="223" selection-end-column="7" />
+            <state relative-caret-position="743">
+              <caret line="215" column="0" lean-forward="false" selection-start-line="215" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="e#6#85#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wapp/mobile/js/main.js">
+      <file leaf-file-name="step2.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wapp/web/step2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebMain.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wapp/common/classes/WebMain.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="463">
+              <caret line="46" column="28" lean-forward="true" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,7 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>exit</find>
       <find>z-index</find>
       <find>jFlawType</find>
       <find>body</find>
@@ -117,6 +118,7 @@
       <find>saveData</find>
       <find>swal</find>
       <find>jSave</find>
+      <find>/</find>
     </findStrings>
     <replaceStrings>
       <replace>duratech</replace>
@@ -127,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wapp/web/popupCollection/languageSetting.php" />
         <option value="$PROJECT_DIR$/wapp/web/css/vis.min.css" />
         <option value="$PROJECT_DIR$/wapp/action_front.php" />
         <option value="$PROJECT_DIR$/wapp/common/classes/comm/Locale.php" />
@@ -156,20 +157,15 @@
         <option value="$PROJECT_DIR$/wapp/mobile/main.html" />
         <option value="$PROJECT_DIR$/wapp/common/classes/comm/Common.php" />
         <option value="$PROJECT_DIR$/wapp/web/php/sideMenu.php" />
-        <option value="$PROJECT_DIR$/wapp/web/popupCollection/spectrumViewPop.php" />
         <option value="$PROJECT_DIR$/wapp/web/php/header.php" />
-        <option value="$PROJECT_DIR$/wapp/web/main.php" />
-        <option value="$PROJECT_DIR$/wapp/web/step1.php" />
         <option value="$PROJECT_DIR$/wapp/mobile/step1_motorStat.html" />
         <option value="$PROJECT_DIR$/wapp/mobile/groupList.php" />
-        <option value="$PROJECT_DIR$/wapp/mobile/motorList.php" />
         <option value="$PROJECT_DIR$/wapp/mobile/Step1/spectrumViewPop.php" />
         <option value="$PROJECT_DIR$/wapp/mobile/Step1/motorInfo.php" />
         <option value="$PROJECT_DIR$/wapp/mobile/php/sideMenu.php" />
         <option value="$PROJECT_DIR$/wapp/mobile/main.php" />
         <option value="$PROJECT_DIR$/wapp/common/php/LoginUtil.php" />
         <option value="$PROJECT_DIR$/wapp/mobile/setting.php" />
-        <option value="$PROJECT_DIR$/wapp/mobile/css/style.css" />
         <option value="$PROJECT_DIR$/wapp/common/classes/WebUser.php" />
         <option value="$PROJECT_DIR$/wapp/mobile/php/header.php" />
         <option value="$PROJECT_DIR$/wapp/mobile/js/main.js" />
@@ -177,7 +173,13 @@
         <option value="$PROJECT_DIR$/wapp/common/classes/WebBase.php" />
         <option value="$PROJECT_DIR$/wapp/web/css/style.css" />
         <option value="$PROJECT_DIR$/wapp/common/classes/WebMain.php" />
+        <option value="$PROJECT_DIR$/wapp/mobile/css/style.css" />
+        <option value="$PROJECT_DIR$/wapp/web/main.php" />
+        <option value="$PROJECT_DIR$/wapp/mobile/motorList.php" />
         <option value="$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php" />
+        <option value="$PROJECT_DIR$/wapp/web/popupCollection/spectrumViewPop.php" />
+        <option value="$PROJECT_DIR$/wapp/web/step1.php" />
+        <option value="$PROJECT_DIR$/wapp/web/step2.php" />
       </list>
     </option>
   </component>
@@ -199,8 +201,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-20" />
-    <option name="y" value="8" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
   </component>
@@ -264,7 +266,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../uni-farm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ddangDdangChicken" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
@@ -339,7 +341,7 @@
       <workItem from="1505349872821" duration="19695000" />
       <workItem from="1505375186288" duration="2292000" />
       <workItem from="1505377549684" duration="47570000" />
-      <workItem from="1505712561527" duration="27463000" />
+      <workItem from="1505712561527" duration="35829000" />
     </task>
     <task id="LOCAL-00001" summary="디렉터리 구조 변경">
       <created>1504492340121</created>
@@ -359,7 +361,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189008000" />
+    <option name="totallyTimeSpent" value="197374000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -404,29 +406,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wapp/web/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="65" lean-forward="false" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/common/classes/ApiBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3780">
-          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
-          <folding>
-            <marker date="1505375595712" expanded="true" signature="3037:3149" ph="SELECT * FRO... tbl_popup" />
-            <marker date="1505375595712" expanded="true" signature="5032:5128" ph="SELECT U.* F... tblUser" />
-            <marker date="1505375595712" expanded="true" signature="5879:5985" ph="SELECT COUNT... tblAppVersion" />
-            <marker date="1505375595712" expanded="true" signature="6012:6155" ph="SELECT COUNT... tblAppVersion" />
-            <marker date="1505375595712" expanded="true" signature="6166:6285" ph="SELECT versi... tblAppVersion" />
-            <marker date="1505375595712" expanded="true" signature="12024:12075" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/mobile/css/vis.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -516,14 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/web/step1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/mobile/step1_기계상태.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
@@ -594,14 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
           <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/mobile/motorList.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="51" column="22" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,14 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/spectrumViewPop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wapp/mobile/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -760,55 +715,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/mobile/css/style.css">
+    <entry file="file://$PROJECT_DIR$/wapp/common/classes/WebMain.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1283">
-          <caret line="167" column="56" lean-forward="false" selection-start-line="167" selection-start-column="56" selection-end-line="167" selection-end-column="56" />
+        <state relative-caret-position="603">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wapp/mobile/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        <state relative-caret-position="40">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/common/classes/WebMain.php">
+    <entry file="file://$PROJECT_DIR$/wapp/mobile/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wapp/mobile/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        <state relative-caret-position="120">
+          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wapp/web/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="223" column="7" lean-forward="true" selection-start-line="223" selection-start-column="7" selection-end-line="223" selection-end-column="7" />
+        <state relative-caret-position="520">
+          <caret line="97" column="48" lean-forward="false" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/mobile/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="33" column="58" lean-forward="false" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/mobile/motorList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/spectrumViewPop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#li#0;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#li#2;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#li#3;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wapp/web/popupCollection/addMotorPop.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="914" column="18" lean-forward="true" selection-start-line="914" selection-start-column="18" selection-end-line="914" selection-end-column="18" />
+        <state relative-caret-position="381">
+          <caret line="213" column="18" lean-forward="true" selection-start-line="213" selection-start-column="18" selection-end-line="213" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/web/step1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="743">
+          <caret line="215" column="0" lean-forward="false" selection-start-line="215" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#select#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#2;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="e#6#85#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/web/step2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1383">
+          <caret line="92" column="55" lean-forward="false" selection-start-line="92" selection-start-column="55" selection-end-line="92" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wapp/web/step2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="46" column="28" lean-forward="true" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

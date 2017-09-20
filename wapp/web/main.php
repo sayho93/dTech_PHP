@@ -95,7 +95,7 @@ $webUser = $obj->webUser["userNo"];
                 var pPlant = dataNodes[e].f_plant;
                 var pCompany = dataNodes[e].f_company;
 
-                var nMotor = dataNodes[e].motorName;
+                var nMotor = dataNodes[e].deviceName;
                 var nGroup = dataNodes[e].groupName;
                 var nPlant = dataNodes[e].plantName;
                 var nCompany = dataNodes[e].companyName;

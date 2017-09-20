@@ -24,7 +24,7 @@
             success: function (data) {
                 for(var i=0; i<data.data.length; i++){
                     var object = $("#motorEntity").html();
-                    object = object.replace("###", data.data[i]["motorName"]);
+                    object = object.replace("###", data.data[i]["deviceName"]);
                     object = object.replace("***", data.data[i]["id"]);
                     $(".jMotorList").append(object);
                 }

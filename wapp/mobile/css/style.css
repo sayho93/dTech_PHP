@@ -1,5 +1,5 @@
 @charset "utf-8";
-body{background:#121419; overflow-x:hidden;}
+body{background:#121419; overflow:hidden;}
 .bgR{background:#d4434e !important;}
 .bgG{background:#2bc856 !important;}
 .bgY{background:#cdbd0d !important;}

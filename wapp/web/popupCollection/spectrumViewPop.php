@@ -9,6 +9,7 @@
 ?>
 <?
     $object = new WebMain($_REQUEST);
+    //TODO getSpectrumData UUID로 변경
     $graphData = json_decode($object->getSpectrumDataWithParam(1, "", "", 5, 700))->data;
 
     echo "<script>console.log('".json_encode($graphData)."');</script>";
@@ -29,7 +30,7 @@
             <?
             for($i=0; $i < sizeof($graphData); $i++){
             ?>
-            {x: <?=$graphData[$i]->regDate + 1?>, y: <?=$graphData[$i]->vLV?>},
+            {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vLV?>},
             <?}?>
         ];
 
@@ -65,27 +66,27 @@
         var optionsLV = {
             drawPoints : false,
             width : '100%',
-            height : '100%'
+            height : '90%',
+            title : "asd"
         };
 
         var optionsHV = {
             drawPoints : false,
             width : '100%',
-            height : '100%'
+            height : '90%'
         };
 
         var optionsLA = {
-
             drawPoints : false,
             width : '100%',
-            height : '100%'
+            height : '90%'
         };
 
         var optionsHA = {
 
             drawPoints : false,
             width : '100%',
-            height : '100%'
+            height : '90%'
         };
 
         var grLV = new vis.Graph2d(ctLV, dataLV, optionsLV);
@@ -127,10 +128,22 @@
 
     <div class="pop_graph_view">
         <ul class="clearfix">
-            <li><div id="graphLV"></div></li>
-            <li><div id="graphHV"></div></li>
-            <li><div id="graphLA"></div></li>
-            <li><div id="graphHA"></div></li>
+            <li>
+                <h2 style="color:#ffffff; text-align: center">회전 관련 결함(Low-V)</h2>
+                <div id="graphLV"></div>
+            </li>
+            <li>
+                <h2 style="color:#ffffff; text-align: center">전기/기계적 결함(High-V)</h2>
+                <div id="graphHV"></div>
+            </li>
+            <li>
+                <h2 style="color:#ffffff; text-align: center">회전 관련 결함(Low-A)</h2>
+                <div id="graphLA"></div>
+            </li>
+            <li>
+                <h2 style="color:#ffffff; text-align: center">전기/기계적 결함(High-A)</h2>
+                <div id="graphHA"></div>
+            </li>
         </ul>
     </div>
 </div>

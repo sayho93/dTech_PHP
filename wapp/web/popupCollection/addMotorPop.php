@@ -40,7 +40,7 @@
             dataType: 'json',
             success: function (data) {
                 if(data.data.success == true)
-                    swal("", processedRow + "개의 데이터를 성공적으로 저장했습니다.", "info");
+                    swal("", data.data.total + "개의 데이터 중 " + data.data.processed + "개의 데이터를 성공적으로 저장했습니다.", "info");
                 else
                     swal("","저장 실패", "error");
             }
@@ -253,7 +253,7 @@
 </script>
 
 
-<div id="optionTemplate">
+<div id="optionTemplate" style="display:none;">
     <option value="***">###</option>
 </div>
 
@@ -818,7 +818,7 @@
 
 <!--            알람 기준값-->
             <div class="tab06 tabContent" id="tabs-6">
-                <table class="tbl">
+                <table class="tbl" style="text-align: center;">
                     <colgroup>
                         <col width="31%" />
                         <col width="23%" />

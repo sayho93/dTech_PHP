@@ -10,6 +10,15 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/sideMenu.php" ;?>
 
+<script>
+    $(function(){
+        $(".jStep2").click2(function(){
+            var motorNo = '<?=$_REQUEST[mKey]?>';
+
+            location.href = "/web/step2.php?mKey="+motorNo;
+        });
+    });
+</script>
 
 <div class="jPopSection" style="position: absolute; z-index:999; top: 12vh; left:10vh">
 
@@ -26,27 +35,27 @@
             <div>
                 <ul>
                     <li>
-                        <p>모터 고정자 결함</p>
+                        <p class="jStep2">모터 고정자 결함</p>
                         <span class="bgR">심각</span>
                     </li>
                     <li>
-                        <p>모터 정적 편심</p>
+                        <p class="jStep2">모터 정적 편심</p>
                         <span class="bgG">정상</span>
                     </li>
                     <li>
-                        <p>모터 동적 편심</p>
+                        <p class="jStep2">모터 동적 편심</p>
                         <span class="bgG">정상</span>
                     </li>
                     <li>
-                        <p>모터 회전자</p>
+                        <p class="jStep2">모터 회전자</p>
                         <span class="bgO">주의</span>
                     </li>
                     <li>
-                        <p>모터 부하측 베어링</p>
+                        <p class="jStep2">모터 부하측 베어링</p>
                         <span class="bgY">관심</span>
                     </li>
                     <li>
-                        <p>모터 반부하측 베어링</p>
+                        <p class="jStep2">모터 반부하측 베어링</p>
                         <span class="bgG">정상</span>
                     </li>
                 </ul>
@@ -161,10 +170,11 @@
         <div class="tab">
             <ul class="clearfix">
                 <li class="on"><a href="#">기본 정보</a></li>
-                <li><a href="#">명판 정보</a></li>
-                <li><a href="#">베어링 정보</a></li>
-                <li><a href="#">구동장치</a></li>
-                <li><a href="#">기타</a></li>
+<!--                TODO tabView-->
+<!--                <li><a href="#">명판 정보</a></li>-->
+<!--                <li><a href="#">베어링 정보</a></li>--
+<!--                <li><a href="#">구동장치</a></li>-->
+<!--                <li><a href="#">기타</a></li>-->
             </ul>
         </div>
         <div class="view_con02 view_con04">
