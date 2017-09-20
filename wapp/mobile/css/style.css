@@ -77,7 +77,7 @@ body{background:#121419; overflow:hidden;}
 /*#####FACTORY LIST#####*/
 .factory_list{width:100vw;}
 .factory_list .list{padding:0 3.6vw; background:#222; position:relative; border-bottom:1px solid #555; height:8vh;}
-.factory_list .list .factory_name{font-size:16px; color:#fff; line-height:8vh;}
+.factory_list .list .factory_name{font-size:16px; color:#fff; line-height:8vh; cursor:pointer;}
 .factory_list .list .next_page{position:absolute; top:50%; right:3.6vw; margin-top:-1.6vh;}
 .factory_list .list .next_page img{width:6vw;}
 

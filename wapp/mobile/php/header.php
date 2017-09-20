@@ -32,6 +32,8 @@
 <script type="text/javascript" src="/mobile/js/vis.js"></script>
 <link href="/mobile/css/vis.min.css" rel="stylesheet" type="text/css"/>
 
+<script src="/common/js/sayhoValueSetter.js" charset="utf-8"></script>
+
 <script>
     $(document).ready(function(){
         //page loading effect
