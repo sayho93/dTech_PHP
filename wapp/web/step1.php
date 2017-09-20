@@ -7,10 +7,17 @@
  */
 ?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/header.php" ;?>
-<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ;?>
+<? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebMain.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/sideMenu.php" ;?>
+<?
+$mainObj = new WebMain($_REQUEST);
+
+$motorInfo = json_decode($mainObj->getMotorInfo())->data;
+?>
 <script>
     $(function(){
+        bindData(JSON.parse('<?=json_encode($motorInfo)?>'), "html");
+
         $(".jStep2").click2(function(){
             var motorNo = '<?=$_REQUEST[mKey]?>';
 
@@ -187,23 +194,23 @@
                     <tbody>
                     <tr>
                         <th scope="row">설비명</th>
-                        <td>47CH902-CM1M</td>
+                        <td name="deviceName"></td>
                     </tr>
                     <tr>
-                        <th scope="row">설비 종료</th>
-                        <td>유도기</td>
+                        <th scope="row">설비 종류</th>
+                        <td name="deviceType"></td>
                     </tr>
                     <tr>
                         <th scope="row">상수</th>
-                        <td>단상</td>
+                        <td name="phaseType"></td>
                     </tr>
                     <tr>
                         <th scope="row">측정 전압 상수</th>
-                        <td>1</td>
+                        <td name="voltagePhase"></td>
                     </tr>
                     <tr>
                         <th scope="row">측정 전류 상수</th>
-                        <td>2</td>
+                        <td name="currencyPhase"></td>
                     </tr>
                     </tbody>
                 </table>

@@ -192,23 +192,26 @@
 
         initSelector($("#motorIndex"));
 
-        if(json.length > 0) bindData(json[0]);
+//        if(json.length > 0) bindData(json[0]);
+        if(json.length > 0)
+            bindData(json[0], "input");
+
     }
 
-    function bindData(row){
-        set(row, Object.keys(row));
-    }
-
-    function set(row, aliases){
-        for(var e = 0; e < aliases.length; e++) {
-            var alias = aliases[e];
-            //radio일 경우
-            if($("[name=" + alias + "]").attr("type") == "radio")
-                $("[name=" + alias + "][value=" + row[alias] + "]").prop("checked", true);
-            else
-                $("[name=" + alias + "]").val(row[alias]);
-        }
-    }
+//    function bindData(row){
+//        set(row, Object.keys(row));
+//    }
+//
+//    function set(row, aliases){
+//        for(var e = 0; e < aliases.length; e++) {
+//            var alias = aliases[e];
+//            //radio일 경우
+//            if($("[name=" + alias + "]").attr("type") == "radio")
+//                $("[name=" + alias + "][value=" + row[alias] + "]").prop("checked", true);
+//            else
+//                $("[name=" + alias + "]").val(row[alias]);
+//        }
+//    }
 
     //tabView event
     $(function (){

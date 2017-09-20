@@ -45,6 +45,8 @@
 <link href="css/vis.min.css" rel="stylesheet" type="text/css"/>
 
 
+<script src="/common/js/sayhoValueSetter.js" charset="utf-8"></script>
+
 
 <script>
     $(document).ready(function(){

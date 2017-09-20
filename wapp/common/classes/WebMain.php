@@ -125,7 +125,7 @@ if(! class_exists("WebMain") )	{
 
         //motorInfo Api
         function getMotorInfo(){
-            $uuid = $this->req["uuid"];
+            $uuid = $this->req["mKey"];
 
             $actionUrl = "{$this->serverRoot}/data/motor/detail/".$uuid;
             $retVal = $this->getData($actionUrl);
