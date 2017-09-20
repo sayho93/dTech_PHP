@@ -180,8 +180,17 @@ if (!class_exists("LoginUtil")) {
 
         static function doWebLogin($row)
         {
-//            LogUtil::writeFileLog("C:/Users/p/workspace_php/duratech/wapp/log", "{$row} \n");
+
             if ($row != null) {
+//
+//                $keySet = array_keys($row);
+//
+//                $cookieStr = "";
+//
+//                for($e = 0; $e < sizeof($keySet); $e++){
+//                    $cookieStr .= $row[$keySet[$e]].chr(30);
+//                }
+
                 $cookieStr =
                     $row->id . chr(30) .
                     $row->account . chr(30) .

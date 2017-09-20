@@ -123,7 +123,7 @@
             }
         };
 
-        
+
         function drawSpectrum(dataNodes){
             for(var i=0; i<dataNodes.length; i++)
                 items.push({x: dataNodes[i].Hz, y: dataNodes[i].value});
