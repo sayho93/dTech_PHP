@@ -12,7 +12,7 @@ if(! class_exists("WebUser") )	{
 		    $userID = $this->req["userID"];
 		    $request = $this->lnFn_Common_CrPost(array("password" => $this->req["userPwd"] ));
 			$actionUrl = "{$this->serverRoot}/user/read/".$userID;
-			$retVal = $this->getData($actionUrl, $request);
+			$retVal = $this->postData($actionUrl, $request);
 
             $userInfo = json_decode($retVal)->data;
 
@@ -25,7 +25,7 @@ if(! class_exists("WebUser") )	{
 		    $userID = $this->webUser["userID"];
 		    $request = $this->lnFn_Common_CrPost(array("loc" => $this->req["locale"]));
 		    $actionUrl = "{$this->serverRoot}/user/locale/".$userID;
-		    $retVal = $this->getData($actionUrl, $request);
+		    $retVal = $this->postData($actionUrl, $request);
 
 		    return $retVal;
         }
@@ -35,7 +35,7 @@ if(! class_exists("WebUser") )	{
             $userID = $this->webUser["userID"];
             $request = $this->lnFn_Common_CrPost(array("accessToken" => md5($userID)));
             $actionUrl = "{$this->serverRoot}/user/read/".$userID;
-            $retVal = $this->getData($actionUrl, $request);
+            $retVal = $this->postData($actionUrl, $request);
             $userInfo = json_decode($retVal)->data;
 
             LoginUtil::doWebLogin($userInfo);
@@ -47,7 +47,7 @@ if(! class_exists("WebUser") )	{
             $userID = $this->webUser["userID"];
 //            $request = $this->lnFn_Common_CrPost(array("accessToken" => md5($userID)));
             $actionUrl = "{$this->serverRoot}/user/update/push/".$userID;
-            $retVal = $this->getData($actionUrl, "");
+            $retVal = $this->postData($actionUrl, "");
             $userInfo = json_decode($retVal)->data;
 
             LoginUtil::doWebLogin($userInfo);
@@ -56,25 +56,25 @@ if(! class_exists("WebUser") )	{
 //
 //		function memberJoin(){
 //			$actionUrl = "{$this->serverRoot}/MadCloud/ApiUser/saveUser";
-//			$retVal = $this->getData($actionUrl, $this->req);
+//			$retVal = $this->postData($actionUrl, $this->req);
 //			return $retVal;
 //		}
 //
 //		function checkIDRedundancy(){
 //			$actionUrl = "{$this->serverRoot}/MadCloud/ApiUser/checkIDRedundancy";
-//			$retVal = $this->getData($actionUrl, $this->req);
+//			$retVal = $this->postData($actionUrl, $this->req);
 //			return $retVal;
 //		}
 //
 //		function checkNickRedundancy(){
 //			$actionUrl = "{$this->serverRoot}/MadCloud/ApiUser/checkNickRedundancy";
-//			$retVal = $this->getData($actionUrl, $this->req);
+//			$retVal = $this->postData($actionUrl, $this->req);
 //			return $retVal;
 //		}
 //
 //		function getListOfRegion(){
 //			$actionUrl = "{$this->serverRoot}/MadCloud/ApiCommon/getListOfRegion";
-//			$retVal = $this->getData($actionUrl, "");
+//			$retVal = $this->postData($actionUrl, "");
 //			return $retVal;
 //		}
 	}

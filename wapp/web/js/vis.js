@@ -7916,6 +7916,7 @@ return /******/ (function(modules) { // webpackBootstrap
       point.setAttributeNS(null, "cx", x);
       point.setAttributeNS(null, "cy", y);
       point.setAttributeNS(null, "r", 0.5 * groupTemplate.size);
+      console.log(JSONcontainer);
     } else {
       point = exports.getSVGElement('rect', JSONcontainer, svgContainer);
       point.setAttributeNS(null, "x", x - 0.5 * groupTemplate.size);

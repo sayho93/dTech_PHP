@@ -35,12 +35,19 @@ if(! class_exists("WebMain") )	{
         //spectrum View data
         function getSpectrumData(){
             $motorNo = $this->req["motorNo"];
-            $startDate = $this->req["startDate"];
-            $endDate = $this->req["endDate"];
-            $interval = $this->req["interval"];
-            $limit = $this->req["limit"];
 
-            return getSpectrumDataWithParam($motorNo, $startDate, $endDate, $interval, $limit);
+            return getSpectrumDataWithParam($motorNo);
+        }
+
+        function getSingleSpectrumData(){
+            $uuid = $this->req[uuid];
+
+            $paramsArray = array("type" => "vHA");
+            $request = $this->lnFn_Common_CrPost($paramsArray);
+            $actionUrl = "{$this->serverRoot}/data/typedSpectrum/".$uuid;
+            $retVal = $this->postData($actionUrl, $request);
+
+            return $retVal;
         }
 
         function getSpectrumDataWithParam($motorNo, $id = 0){

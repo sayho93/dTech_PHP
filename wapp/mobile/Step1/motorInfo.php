@@ -14,7 +14,7 @@
 ?>
     <script>
         $(document).ready(function(){
-            var ID = "<?=$_REQUEST[no]?>";
+            var ID = "<?=$_REQUEST[mKey]?>";
 
             $(".jBack").show();
             $(".header").find("h2").html("<?=$_REQUEST[motorName]?>");
