@@ -90,7 +90,7 @@ $webUser = $obj->webUser["userNo"];
             var drawIndex = 0;
 
             for(var e = 0; e < dataNodes.length; e++){
-                var pMotor = dataNodes[e].id;
+                var pMotor = dataNodes[e].UUID;
                 var pGroup = dataNodes[e].f_group;
                 var pPlant = dataNodes[e].f_plant;
                 var pCompany = dataNodes[e].f_company;

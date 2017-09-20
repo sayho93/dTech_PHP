@@ -6,15 +6,15 @@
  * Time: 오전 9:39
  */
 ?>
-
 <script>
     $(document).ready(function(){
         var popMap = new Map();
+        var mKey = '<?=$_REQUEST[mKey]?>';
 
         $(".jSubmit").click2(function(){
             if(popMap.containsKey("/web/popupCollection/spectrumViewPop.php")){
                 //main.js의 showPop 호출
-                showPop("/web/popupCollection/spectrumViewPop.php");
+                showPop("/web/popupCollection/spectrumViewPop.php?mKey="+mKey);
             }
 
         });

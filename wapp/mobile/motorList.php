@@ -25,7 +25,7 @@
                 for(var i=0; i<data.data.length; i++){
                     var object = $("#motorEntity").html();
                     object = object.replace("###", data.data[i]["deviceName"]);
-                    object = object.replace("***", data.data[i]["id"]);
+                    object = object.replace("***", data.data[i]["UUID"]);
                     $(".jMotorList").append(object);
                 }
                 $("#groupList").fadeOut({

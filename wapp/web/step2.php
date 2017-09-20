@@ -11,6 +11,11 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/common/classes/WebUser.php" ;?>
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/sideMenu.php" ;?>
 
+<?
+
+
+?>
+
 <script>
     $(function(){
 

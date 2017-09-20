@@ -28,3 +28,5 @@ address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
 .clearfix:after{display:block;clear:both;content:''}
 .skip a{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0}
 .skip a:hover,.skip a:active,.skip a:focus{top:0}
+
+.jPopSection {border:1px solid #000; -webkit-box-shadow:3px 3px 10px #151515 ; -ms-box-shadow:3px 3px 10px #151515 ; box-shadow:3px 3px 10px #151515}

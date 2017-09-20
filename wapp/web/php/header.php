@@ -93,7 +93,8 @@
 
         //header popupManage Click handler
         $(".jPopManage").click2(function(){
-            showPop("/web/popupCollection/popupManagePop.php");
+            var mKey = '<?=$_REQUEST[mKey]?>';
+            showPop("/web/popupCollection/popupManagePop.php?mKey="+mKey);
         });
 
         $(".jFullForce").click2(function(){

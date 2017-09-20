@@ -43,12 +43,12 @@ if(! class_exists("WebMain") )	{
             return getSpectrumDataWithParam($motorNo, $startDate, $endDate, $interval, $limit);
         }
 
-        function getSpectrumDataWithParam($motorNo, $startDate, $endDate, $interval = 5, $limit = 100){
+        function getSpectrumDataWithParam($motorNo, $id = 0){
             if($motorNo == ""){
                 throw new Exception();
             }
 
-            $paramsArray = array("startDate"=>$startDate, "endDate"=>$endDate, "interval"=>$interval, "limit"=>$limit);
+            $paramsArray = array("id" => $id);
             $request = $this->lnFn_Common_CrPost($paramsArray);
             $actionUrl = "{$this->serverRoot}/data/spectrum/".$motorNo;
             $retVal = $this->getData($actionUrl, $request);

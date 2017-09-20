@@ -11,7 +11,18 @@
 <? include $_SERVER["DOCUMENT_ROOT"] . "/web/php/metaData.php" ?>
 <?
 $object = new WebMain($_REQUEST);
-$graphData = json_decode($object->getSpectrumDataWithParam(1, "", "", 5, 700))->data;
+
+$uuid = $_REQUEST[no];
+
+
+$graphData = json_decode($object->getSpectrumDataWithParam($uuid))->data;
+
+$dataLV = $graphData->vLV->list;
+$dataHV = $graphData->vHV->list;
+$dataLA = $graphData->vLA->list;
+$dataHA = $graphData->vHA->list;
+
+echo "<script>console.log('".json_encode($graphData)."');</script>";
 ?>
 
 <!DOCTYPE html>
@@ -41,33 +52,33 @@ $graphData = json_decode($object->getSpectrumDataWithParam(1, "", "", 5, 700))->
 
         var itemsLV = [
             <?
-            for($i=0; $i < sizeof($graphData); $i++){
+            for($i=0; $i < sizeof($dataLV); $i++){
             ?>
-            {x: <?=$graphData[$i]->regDate + 1?>, y: <?=$graphData[$i]->vLV?>},
+            {x: <?=$dataLV[$i]->Hz?>, y: <?=$dataLV[$i]->value?>},
             <?}?>
         ];
 
         var itemsHV = [
             <?
-            for($i=0; $i < sizeof($graphData); $i++){
+            for($i=0; $i < sizeof($dataHV); $i++){
             ?>
-            {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vHV?>},
+            {x: <?=$dataHV[$i]->Hz?>, y: <?=$dataHV[$i]->value?>},
             <?}?>
         ];
 
         var itemsLA = [
             <?
-            for($i=0; $i < sizeof($graphData); $i++){
+            for($i=0; $i < sizeof($dataLA); $i++){
             ?>
-            {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vLA?>},
+            {x: <?=$dataLA[$i]->Hz?>, y: <?=$dataLA[$i]->value?>},
             <?}?>
         ];
 
         var itemsHA = [
             <?
-            for($i=0; $i < sizeof($graphData); $i++){
+            for($i=0; $i < sizeof($dataHA); $i++){
             ?>
-            {x: <?=$graphData[$i]->regDate?>, y: <?=$graphData[$i]->vHA?>},
+            {x: <?=$dataHA[$i]->Hz?>, y: <?=$dataHA[$i]->value?>},
             <?}?>
         ];
 
@@ -76,36 +87,38 @@ $graphData = json_decode($object->getSpectrumDataWithParam(1, "", "", 5, 700))->
         var dataLA = new vis.DataSet(itemsLA);
         var dataHA = new vis.DataSet(itemsHA);
 
-        var optionsLV = {
+        var options = {
             drawPoints : false,
             width : '100%',
-            height : '100%'
+            height : '100%',
+            format : {
+                minorLabels: {
+                    millisecond:'x',
+                    second:     'x',
+                    minute:     'x',
+                    hour:       'x',
+                    weekday:    'x',
+                    day:        'x',
+                    month:      'x',
+                    year:       'x'
+                },
+                majorLabels: {
+                    millisecond:'x',
+                    second:     'x',
+                    minute:     'x',
+                    hour:       'x',
+                    weekday:    'x',
+                    day:        'x',
+                    month:      'x',
+                    year:       'x'
+                }
+            }
         };
 
-        var optionsHV = {
-            drawPoints : false,
-            width : '100%',
-            height : '100%'
-        };
-
-        var optionsLA = {
-
-            drawPoints : false,
-            width : '100%',
-            height : '100%'
-        };
-
-        var optionsHA = {
-
-            drawPoints : false,
-            width : '100%',
-            height : '100%'
-        };
-
-        var grLV = new vis.Graph2d(ctLV, dataLV, optionsLV);
-        var grHV = new vis.Graph2d(ctHV, dataHV, optionsHV);
-        var grLA = new vis.Graph2d(ctLA, dataLA, optionsLA);
-        var grHA = new vis.Graph2d(ctHA, dataHA, optionsHA);
+        var grLV = new vis.Graph2d(ctLV, dataLV, options);
+        var grHV = new vis.Graph2d(ctHV, dataHV, options);
+        var grLA = new vis.Graph2d(ctLA, dataLA, options);
+        var grHA = new vis.Graph2d(ctHA, dataHA, options);
 
         <?}?>
 
