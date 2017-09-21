@@ -69,17 +69,13 @@
         var dataLA = new vis.DataSet(itemsLA);
         var dataHA = new vis.DataSet(itemsHA);
 
-//        var optionsLV = {
-//            drawPoints : false,
-//            width : '100%',
-//            height : '90%'
-//
-//        };
-
         var options = {
             drawPoints : false,
             width : '100%',
             height : '90%',
+            interpolation : {
+                enabled : false
+            },
             format : {
                 minorLabels: {
                     millisecond:'x',
@@ -103,19 +99,6 @@
                 }
             }
         };
-//
-//        var optionsLA = {
-//            drawPoints : false,
-//            width : '100%',
-//            height : '90%'
-//        };
-//
-//        var optionsHA = {
-//
-//            drawPoints : false,
-//            width : '100%',
-//            height : '90%'
-//        };
 
         var grLV = new vis.Graph2d(ctLV, dataLV, options);
         var grHV = new vis.Graph2d(ctHV, dataHV, options);
